@@ -19,10 +19,10 @@
          xmlns:rdf="&rdf;"
          xmlns:rdfs="&rdfs;">
 
-  	<owl:Ontology rdf:about="&discourserelationships;">
-  		<rdf:type rdf:resource="&owl;Ontology"/>
-  		<rdfs:label rdf:datatype="&xsd;string">Discourse relationships vocabulary v. 3</rdfs:label>
-  		<rdfs:comment rdf:datatype="&xsd;string">These relationships don't have range and domains defined as they are meant to be reused in different contexts</rdfs:comment>
+	<owl:Ontology rdf:about="&discourserelationships;">
+        <rdf:type rdf:resource="&owl;Ontology"/>
+        <rdfs:label rdf:datatype="&xsd;string">Discourse relationships vocabulary v. 3</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">These relationships don't have range and domains defined as they are meant to be reused in different contexts</rdfs:comment>
 
         <owl:versionInfo rdf:datatype="&xsd;string">3.0</owl:versionInfo>
         
@@ -39,7 +39,7 @@
         <dc:contributor rdf:datatype="&xsd;string">David Shotton</dc:contributor>     
         <dc:date rdf:datatype="&xsd;string">April 24, 2010</dc:date>
         <dc:format rdf:datatype="&xsd;string">rdf/xml</dc:format>
-  	</owl:Ontology>
+	</owl:Ontology>
 
   	<!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -49,27 +49,27 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
      
-  	<rdf:Description rdf:about="&dc;title">
-  	  	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
-  	</rdf:Description>
-  	<rdf:Description rdf:about="&dc;date">
-    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
- 	</rdf:Description>
-  	<rdf:Description rdf:about="&dc;creator">
-    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
-  	</rdf:Description>
-  	<rdf:Description rdf:about="&dc;format">
-    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
-  	</rdf:Description>
-  	<rdf:Description rdf:about="&dc;language">
-    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
-  	</rdf:Description>
-  	<rdf:Description rdf:about="&dc;publisher">
-    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
-  	</rdf:Description>
-  	<rdf:Description rdf:about="&dc;contributor">
-    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
-  	</rdf:Description>  	 
+	<rdf:Description rdf:about="&dc;title">
+		<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="&dc;date">
+		<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="&dc;creator">
+		<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="&dc;format">
+		<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="&dc;language">
+		<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="&dc;publisher">
+		<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="&dc;contributor">
+		<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+	</rdf:Description>  	 
   	
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -79,60 +79,60 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->     
     <owl:ObjectProperty rdf:about="relatesTo">
-    	<rdfs:label>(relationships) relatesTo</rdfs:label>
-    	<rdfs:comment rdf:datatype="&xsd;string">The most generic relationship: it expresses connection 
-    		between two resources without specifying the nature of such connection</rdfs:comment>
-  	</owl:ObjectProperty> 
+		<rdfs:label>relatesTo</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">The most generic relationship: it expresses connection 
+			between two resources without specifying the nature of such connection</rdfs:comment>
+	</owl:ObjectProperty> 
   	
-	  	<owl:ObjectProperty rdf:about="refersTo">
-	  		<rdfs:label>(relationships) refersTo</rdfs:label>
-	    	<rdfs:comment rdf:datatype="&xsd;string">It connects an entity with another entity in an 
-	    		unidirectional way</rdfs:comment>
-	    	<rdfs:subPropertyOf rdf:resource="relatesTo"/>
-	  	</owl:ObjectProperty>   
+		<owl:ObjectProperty rdf:about="refersTo">
+			<rdfs:label>refersTo</rdfs:label>
+			<rdfs:comment rdf:datatype="&xsd;string">It connects an entity with another entity in an 
+				unidirectional way</rdfs:comment>
+			<rdfs:subPropertyOf rdf:resource="relatesTo"/>
+		</owl:ObjectProperty>   
 	  	
 			<owl:ObjectProperty rdf:about="motivates">
-				<rdfs:label>(relationships) motivates</rdfs:label>
-		  		<rdfs:subPropertyOf rdf:resource="refersTo"/>
-		    	<rdfs:comment rdf:datatype="&xsd;string">Something (hypothesis, doubt...) that motivates something else like an experiment</rdfs:comment>
-		  	</owl:ObjectProperty>
+				<rdfs:label>motivates</rdfs:label>
+				<rdfs:subPropertyOf rdf:resource="refersTo"/>
+				<rdfs:comment rdf:datatype="&xsd;string">Something (hypothesis, doubt...) that motivates something else like an experiment</rdfs:comment>
+			</owl:ObjectProperty>
 		  	
 			<owl:ObjectProperty rdf:about="arisesFrom">
-				<rdfs:label>(relationships) arisesFrom</rdfs:label>
-		  		<rdfs:subPropertyOf rdf:resource="refersTo"/>
-		    	<rdfs:comment rdf:datatype="&xsd;string">Something (question, doubt...) that arises because of something else</rdfs:comment>
-		  	</owl:ObjectProperty> 
+				<rdfs:label>arisesFrom</rdfs:label>
+				<rdfs:subPropertyOf rdf:resource="refersTo"/>
+				<rdfs:comment rdf:datatype="&xsd;string">Something (question, doubt...) that arises because of something else</rdfs:comment>
+			</owl:ObjectProperty> 
  
 	     
 			<owl:ObjectProperty rdf:about="respondsTo">
-				<rdfs:label>(relationships) respondsTo</rdfs:label>
+				<rdfs:label>respondsTo</rdfs:label>
 				<rdfs:subPropertyOf rdf:resource="refersTo"/>
 				<rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
 			</owl:ObjectProperty> 
   	
 				  	<owl:ObjectProperty rdf:about="respondsNeutrallyTo">
-				  		<rdfs:label>(relationships) respondsNeutrallyTo</rdfs:label>
+				  		<rdfs:label>respondsNeutrallyTo</rdfs:label>
 				  		<rdfs:subPropertyOf rdf:resource="respondsTo"/>
 				    	<rdfs:comment rdf:datatype="&xsd;string">It expresses the fact that one entity is 
 				    		talking about another one without expressing agreement or disagreement</rdfs:comment>
 				  	</owl:ObjectProperty>
 				  	
 				  	<owl:ObjectProperty rdf:about="respondsPositivelyTo">
-				  		<rdfs:label>(relationships) respondsPositivelyTo</rdfs:label>
+				  		<rdfs:label>respondsPositivelyTo</rdfs:label>
 				  		<rdfs:subPropertyOf rdf:resource="respondsTo"/>
 				    	<rdfs:comment rdf:datatype="&xsd;string">It expresses the fact that one entity is talking 
 				    		about another one expressing agreement</rdfs:comment>
 				  	</owl:ObjectProperty>
 				  	
 				  	<owl:ObjectProperty rdf:about="respondsNegativelyTo">
-				  		<rdfs:label>(relationships) respondsNegativelyTo</rdfs:label>
+				  		<rdfs:label>respondsNegativelyTo</rdfs:label>
 				  		<rdfs:subPropertyOf rdf:resource="respondsTo"/>
 				    	<rdfs:comment rdf:datatype="&xsd;string">It expresses the fact that one entity is talking 
 				    		about another one expressing disagreement</rdfs:comment>
 				  	</owl:ObjectProperty> 
 				  	
 		<owl:ObjectProperty rdf:about="inconsistentWith">
-			<rdfs:label>(relationships) inconsistentWith</rdfs:label>
+			<rdfs:label>inconsistentWith</rdfs:label>
 			<rdfs:subPropertyOf rdf:resource="relatesTo"/>
 	  		<rdf:type rdf:resource="&owl;SymmetricProperty" />
 	    	<rdfs:comment rdf:datatype="&xsd;string">It expresses inconsistency between two resources. 
@@ -140,7 +140,7 @@
 		</owl:ObjectProperty>
 		  	
 	  	<owl:ObjectProperty rdf:about="consistentWith">
-	  		<rdfs:label>(relationships) consistentWith</rdfs:label>
+	  		<rdfs:label>consistentWith</rdfs:label>
 	  		<rdfs:subPropertyOf rdf:resource="relatesTo"/>
 	  		<rdf:type rdf:resource="&owl;SymmetricProperty" />
 	    	<rdfs:comment rdf:datatype="&xsd;string">It expresses consistency between two resources. 
@@ -148,7 +148,7 @@
 	  	</owl:ObjectProperty>	
 	  	
 	  	<owl:ObjectProperty rdf:about="relevantTo">
-	  		<rdfs:label>(relationships) relevantTo</rdfs:label>
+	  		<rdfs:label>relevantTo</rdfs:label>
 	  		<rdfs:subPropertyOf rdf:resource="relatesTo"/>
 			<rdf:type rdf:resource="&owl;SymmetricProperty" />
 	    	<rdfs:comment rdf:datatype="&xsd;string">It expresses the fact that a resource is 
@@ -156,7 +156,7 @@
 	  	</owl:ObjectProperty>
 	  	
 	  	<owl:ObjectProperty rdf:about="alternativeTo">
-	  		<rdfs:label>(relationships) alternativeTo</rdfs:label>
+	  		<rdfs:label>alternativeTo</rdfs:label>
 			<rdfs:subPropertyOf rdf:resource="relatesTo"/>
 	  		<rdf:type rdf:resource="&owl;SymmetricProperty" />
 	    	<rdfs:comment rdf:datatype="&xsd;string">It connects two different resources that can be 
