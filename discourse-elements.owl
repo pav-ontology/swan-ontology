@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Created by Paolo Ciccarese http://www.paolociccarese.info on April 28th, 2010 -->
+
+<!DOCTYPE rdf:RDF [
+    <!-- Other namespaces -->
+    <!ENTITY xsd  "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdf  "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY owl  "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc   "http://purl.org/dc/elements/1.1/" >
+    
+    <!-- Main namespace -->
+    <!ENTITY discourseelements "http://purl.org/swan/discourse-elements/" >
+]>
+<rdf:RDF xml:base="&discourseelements;"
+         xmlns:dc="&dc;"
+         xmlns:owl="&owl;"
+         xmlns:rdf="&rdf;"
+         xmlns:rdfs="&rdfs;">
+
+	<owl:Ontology rdf:about="&discourseelements;">
+        <rdf:type rdf:resource="&owl;Ontology"/>
+        <rdfs:label rdf:datatype="&xsd;string">Discourse relationships vocabulary v. 3</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">These relationships don't have range and domains defined as they are meant to be reused in different contexts</rdfs:comment>
+
+        <owl:versionInfo rdf:datatype="&xsd;string">3.0</owl:versionInfo>
+        
+        <dc:language>en</dc:language>
+        <dc:title xml:lang="en">Discourse relationships vocabulary</dc:title>
+        <dc:creator rdf:resource="http://www.paolociccarese.info/foaf.rdf#me" /> 
+        <dc:publisher rdf:resource="http://swan.mindinformatics.org" />
+        <dc:contributor rdf:datatype="&xsd;string">Paolo Ciccarese</dc:contributor>
+        <dc:contributor rdf:datatype="&xsd;string">Marco Ocana</dc:contributor>
+        <dc:contributor rdf:datatype="&xsd;string">Elizabeth Wu</dc:contributor>
+        <dc:contributor rdf:datatype="&xsd;string">Tim Clark</dc:contributor>
+        <dc:contributor rdf:datatype="&xsd;string">Gwen Wong</dc:contributor>  
+        <dc:contributor rdf:datatype="&xsd;string">June Kinoshita</dc:contributor>    
+        <dc:date rdf:datatype="&xsd;string">April 24, 2010</dc:date>
+        <dc:format rdf:datatype="&xsd;string">rdf/xml</dc:format>
+	</owl:Ontology>
+
+  	<!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+     
+	<rdf:Description rdf:about="&dc;title">
+		<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="&dc;date">
+		<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="&dc;creator">
+		<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="&dc;format">
+		<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="&dc;language">
+		<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="&dc;publisher">
+		<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="&dc;contributor">
+		<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+	</rdf:Description>  	 
+  	
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->  
+     
+ </rdf:RDF>
