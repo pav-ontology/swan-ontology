@@ -90,6 +90,24 @@
 				unidirectional way</rdfs:comment>
 			<rdfs:subPropertyOf rdf:resource="relatesTo"/>
 		</owl:ObjectProperty>   
+
+			<owl:ObjectProperty rdf:about="referencesAsSupportiveEvidence">
+				<rdfs:label>references as supporting evidence</rdfs:label>
+				<rdfs:subPropertyOf rdf:resource="refersTo"/>
+				<rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+			</owl:ObjectProperty>
+			
+			<owl:ObjectProperty rdf:about="referencesAsRelevantEvidence">
+				<rdfs:label>references as relevant evidence</rdfs:label>
+				<rdfs:subPropertyOf rdf:resource="refersTo"/>
+				<rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+			</owl:ObjectProperty>
+			
+			<owl:ObjectProperty rdf:about="referencesAsInconsistentEvidence">
+				<rdfs:label>references as inconsistence evidence</rdfs:label>
+				<rdfs:subPropertyOf rdf:resource="refersTo"/>
+				<rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+			</owl:ObjectProperty>
 	  	
 			<owl:ObjectProperty rdf:about="motivates">
 				<rdfs:label>motivates</rdfs:label>
