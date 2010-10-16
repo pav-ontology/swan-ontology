@@ -14,7 +14,7 @@
     <!ENTITY discourseelements "http://purl.org/swan/2.0/discourse-elements/" >
 ]>
 <rdf:RDF xml:base="&discourseelements;"
-         xmlns:dc="&dct;"
+         xmlns:dct="&dct;"
          xmlns:owl="&owl;"
          xmlns:rdf="&rdf;"
          xmlns:rdfs="&rdfs;">
