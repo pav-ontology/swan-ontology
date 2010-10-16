@@ -39,7 +39,7 @@
         
         <dct:language>en</dct:language>
         <dct:title xml:lang="en">Collections ontology</dct:title>
-        <dct:creator rdf:resource="http://www.hcklab.org/people/paolo-ciccarese/" />
+        <dct:creator rdf:resource="http://www.hcklab.org/foaf.rdf#me" /> 
         <dct:contributor rdf:datatype="&xsd;string">Paolo Ciccarese</dct:contributor>
         <dct:contributor rdf:datatype="&xsd;string">Marco Ocana</dct:contributor>
         <dct:publisher rdf:datatype="&xsd;string">Mindinformatics, Massachusetts General Hospital</dct:publisher>
