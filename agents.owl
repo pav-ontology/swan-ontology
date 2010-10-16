@@ -13,6 +13,9 @@
     <!ENTITY foaf "http://xmlns.com/foaf/0.1/">
     <!ENTITY collections "http://purl.org/swan/2.0/collections/">
     
+    <!ENTITY pav "http://swan.mindinformatics.org/ontologies/1.2/pav/">
+  	<!ENTITY reification "http://swan.mindinformatics.org/ontologies/1.2/reification/">
+    
     <!-- Main namespace -->
     <!ENTITY agents "http://swan.mindinformatics.org/ontologies/1.2/agents/" >
     
