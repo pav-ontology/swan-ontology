@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Created by Paolo Ciccarese http://www.paolociccarese.info/ on October 12, 2010 -->
+
+<!DOCTYPE rdf:RDF [
+    <!-- Other namespaces -->
+    <!ENTITY xsd  "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdf  "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY owl  "http://www.w3.org/2002/07/owl#" >
+    
+    <!ENTITY dct  "http://purl.org/dc/terms/" >
+    <!ENTITY skos "http://www.w3.org/2008/05/skos#" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/">
+    
+    <!-- Main namespace -->
+    <!ENTITY swan "http://purl.org/swan/2.0/" >
+    
+    <!-- Files -->
+  	<!ENTITY local "file:///Users/paolociccarese/Websites/Mindinformatics/ontologies/2.0/swan.owl">
+  	<!ENTITY path "http://purl.org/swan/2.0/">
+  	<!ENTITY file "&path;">  
+  	
+  	<!ENTITY discourse-elements-local "file:////Users/paolociccarese/Workspaces/ExternalProjects/SwanOntology/discourse-elements.owl">
+  	<!ENTITY discourse-elements-path "http://purl.org/swan/2.0/discourse-elements/">
+  	<!ENTITY discourse-elements-file "&discourse-elements-path;">
+  	
+  	<!ENTITY discourse-relationships-local "file:////Users/paolociccarese/Workspaces/ExternalProjects/SwanOntology/discourse-relationships.owl">
+  	<!ENTITY discourse-relationships-path "http://purl.org/swan/2.0/discourse-relationships/">
+  	<!ENTITY discourse-relationships-file "&discourse-relationships-path;">
+]>
+
+<rdf:RDF
+	xml:base="&swan;"
+	xmlns:swan="&swan;"
+    xmlns:rdfs="&rdfs;"
+    xmlns:owl="&owl;"
+    xmlns:rdf="&rdf;"
+    xmlns:xsd="&xsd;"
+    xmlns:dct="&dct;"
+    xmlns:foaf="&foaf;">
+    
+    <owl:Ontology rdf:about="&file;">
+		<rdf:type rdf:resource="&owl;Ontology"/>
+		<rdfs:label rdf:datatype="&xsd;string">SWAN ontology v. 2.0</rdfs:label>
+    	
+    	<owl:imports rdf:resource="&discourse-elements-file;"/>
+    	<owl:imports rdf:resource="&discourse-relationships-file;"/>
+    	
+    	<dct:language>en</dct:language>
+    	<dct:title xml:lang="en">SWAN Ontology for Scientific Discourse v. 2.0</dct:title>
+    	<dct:creator rdf:resource="http://www.hcklab.org/people/paolo-ciccarese/" />
+    	<dct:contributor rdf:datatype="&xsd;string">Paolo Ciccarese</dct:contributor>
+        <dct:contributor>Elizabeth Wu</dct:contributor>
+        <dct:contributor>June Kinoshita</dct:contributor>
+        <dct:contributor>Gwen Wong</dct:contributor>
+        <dct:contributor>Tim Clark</dct:contributor>    	
+        <dct:contributor>Marco Ocana</dct:contributor>    	
+    	<dct:publisher rdf:datatype="&xsd;string">http://swan.mindinformatics.org</dct:publisher>
+        <dct:date rdf:datatype="&xsd;string">October 12, 2010</dct:date>
+        <dct:format rdf:datatype="&xsd;string">rdf/xml</dct:format>  
+             
+    </owl:Ontology> 
+    
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+     
+  	<rdf:Description rdf:about="&dct;title">
+  	  	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dct;date">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+ 	</rdf:Description>
+  	<rdf:Description rdf:about="&dct;creator">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dct;format">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dct;language">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dct;publisher">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dct;contributor">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>      
+</rdf:RDF>
