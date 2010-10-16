@@ -14,7 +14,7 @@
     <!ENTITY discourserelationships "http://purl.org/swan/2.0/discourse-relationships/" >
 ]>
 <rdf:RDF xml:base="&discourserelationships;"
-         xmlns:dc="&dc;"
+         xmlns:dct="&dct;"
          xmlns:owl="&owl;"
          xmlns:rdf="&rdf;"
          xmlns:rdfs="&rdfs;">
