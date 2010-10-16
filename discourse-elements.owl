@@ -25,7 +25,7 @@
 
         <owl:versionInfo rdf:datatype="&xsd;string">3.0</owl:versionInfo>
         
-        <dct:language>en</dc:language>
+        <dct:language>en</dct:language>
         <dct:title xml:lang="en">Discourse relationships vocabulary</dct:title>
         <dct:creator rdf:resource="http://www.paolociccarese.info/foaf.rdf#me" /> 
         <dct:publisher rdf:resource="http://swan.mindinformatics.org" />
