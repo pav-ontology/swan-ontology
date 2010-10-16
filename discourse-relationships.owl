@@ -8,10 +8,10 @@
     <!ENTITY rdf  "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY owl  "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY dc   "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY dct  "http://purl.org/dc/terms/" >
     
     <!-- Main namespace -->
-    <!ENTITY discourserelationships "http://purl.org/swan/discourse-relationships/" >
+    <!ENTITY discourserelationships "http://purl.org/swan/2.0/discourse-relationships/" >
 ]>
 <rdf:RDF xml:base="&discourserelationships;"
          xmlns:dc="&dc;"
@@ -21,24 +21,24 @@
 
 	<owl:Ontology rdf:about="&discourserelationships;">
         <rdf:type rdf:resource="&owl;Ontology"/>
-        <rdfs:label rdf:datatype="&xsd;string">Discourse relationships vocabulary v. 3</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Discourse relationships vocabulary v. 3.0</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">These relationships don't have range and domains defined as they are meant to be reused in different contexts</rdfs:comment>
 
         <owl:versionInfo rdf:datatype="&xsd;string">3.0</owl:versionInfo>
         
-        <dc:language>en</dc:language>
-        <dc:title xml:lang="en">Discourse relationships vocabulary</dc:title>
-        <dc:creator rdf:resource="http://www.paolociccarese.info/foaf.rdf#me" /> 
-        <dc:publisher rdf:resource="http://swan.mindinformatics.org" />
-        <dc:contributor rdf:datatype="&xsd;string">Paolo Ciccarese</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;string">Marco Ocana</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;string">Elizabeth Wu</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;string">Tim Clark</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;string">Gwen Wong</dc:contributor>  
-        <dc:contributor rdf:datatype="&xsd;string">June Kinoshita</dc:contributor>  
-        <dc:contributor rdf:datatype="&xsd;string">David Shotton</dc:contributor>     
-        <dc:date rdf:datatype="&xsd;string">April 24, 2010</dc:date>
-        <dc:format rdf:datatype="&xsd;string">rdf/xml</dc:format>
+        <dct:language>en</dct:language>
+        <dct:title xml:lang="en">Discourse relationships vocabulary</dct:title>
+        <dct:creator rdf:resource="http://www.hcklab.org/foaf.rdf#me" /> 
+        <dct:publisher>Massachusetts General Hospital</dct:publisher>
+        <dct:contributor rdf:datatype="&xsd;string">Paolo Ciccarese</dct:contributor>
+        <dct:contributor rdf:datatype="&xsd;string">Marco Ocana</dct:contributor>
+        <dct:contributor rdf:datatype="&xsd;string">Elizabeth Wu</dct:contributor>
+        <dct:contributor rdf:datatype="&xsd;string">Tim Clark</dct:contributor>
+        <dct:contributor rdf:datatype="&xsd;string">Gwen Wong</dct:contributor>  
+        <dct:contributor rdf:datatype="&xsd;string">June Kinoshita</dct:contributor>  
+        <dct:contributor rdf:datatype="&xsd;string">David Shotton</dct:contributor>     
+        <dct:date rdf:datatype="&xsd;string">October 12, 2010</dct:date>
+        <dct:format rdf:datatype="&xsd;string">rdf/xml</dct:format>
 	</owl:Ontology>
 
   	<!-- 
@@ -49,25 +49,25 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
      
-	<rdf:Description rdf:about="&dc;title">
+	<rdf:Description rdf:about="&dct;title">
 		<rdf:type rdf:resource="&owl;AnnotationProperty"/>
 	</rdf:Description>
-	<rdf:Description rdf:about="&dc;date">
+	<rdf:Description rdf:about="&dct;date">
 		<rdf:type rdf:resource="&owl;AnnotationProperty"/>
 	</rdf:Description>
-	<rdf:Description rdf:about="&dc;creator">
+	<rdf:Description rdf:about="&dct;creator">
 		<rdf:type rdf:resource="&owl;AnnotationProperty"/>
 	</rdf:Description>
-	<rdf:Description rdf:about="&dc;format">
+	<rdf:Description rdf:about="&dct;format">
 		<rdf:type rdf:resource="&owl;AnnotationProperty"/>
 	</rdf:Description>
-	<rdf:Description rdf:about="&dc;language">
+	<rdf:Description rdf:about="&dct;language">
 		<rdf:type rdf:resource="&owl;AnnotationProperty"/>
 	</rdf:Description>
-	<rdf:Description rdf:about="&dc;publisher">
+	<rdf:Description rdf:about="&dct;publisher">
 		<rdf:type rdf:resource="&owl;AnnotationProperty"/>
 	</rdf:Description>
-	<rdf:Description rdf:about="&dc;contributor">
+	<rdf:Description rdf:about="&dct;contributor">
 		<rdf:type rdf:resource="&owl;AnnotationProperty"/>
 	</rdf:Description>  	 
   	
@@ -92,19 +92,19 @@
 		</owl:ObjectProperty>   
 
 			<owl:ObjectProperty rdf:about="referencesAsSupportiveEvidence">
-				<rdfs:label>references as supporting evidence</rdfs:label>
+				<rdfs:label>referencesAsSupportiveEvidence</rdfs:label>
 				<rdfs:subPropertyOf rdf:resource="refersTo"/>
 				<rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
 			</owl:ObjectProperty>
 			
 			<owl:ObjectProperty rdf:about="referencesAsRelevantEvidence">
-				<rdfs:label>references as relevant evidence</rdfs:label>
+				<rdfs:label>referencesAsRelevantEvidence</rdfs:label>
 				<rdfs:subPropertyOf rdf:resource="refersTo"/>
 				<rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
 			</owl:ObjectProperty>
 			
 			<owl:ObjectProperty rdf:about="referencesAsInconsistentEvidence">
-				<rdfs:label>references as inconsistence evidence</rdfs:label>
+				<rdfs:label>referencesAsInconsistentEvidence</rdfs:label>
 				<rdfs:subPropertyOf rdf:resource="refersTo"/>
 				<rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
 			</owl:ObjectProperty>
