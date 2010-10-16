@@ -49,7 +49,7 @@
     	
     	<dct:language>en</dct:language>
     	<dct:title xml:lang="en">SWAN Ontology for Scientific Discourse v. 2.0</dct:title>
-    	<dct:creator rdf:resource="http://www.hcklab.org/people/paolo-ciccarese/" />
+    	<dct:creator rdf:resource="http://www.hcklab.org/foaf.rdf#me" />
     	<dct:contributor rdf:datatype="&xsd;string">Paolo Ciccarese</dct:contributor>
         <dct:contributor>Elizabeth Wu</dct:contributor>
         <dct:contributor>June Kinoshita</dct:contributor>
