@@ -190,7 +190,7 @@
     	<rdfs:subClassOf>
 	    	<owl:Restriction>
 	            <owl:onProperty rdf:resource="&reification;subject"/>
-	            <owl:allValuesFrom rdf:resource="&agents;Person"/>
+	            <owl:allValuesFrom rdf:resource="&foaf;Person"/>
 	        </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
