@@ -17,7 +17,7 @@
     
     <!-- Files -->
     <!ENTITY previousfile "http://swan.mindinformatics.org/ontologies/1.2/foaf-essential.owl">
-	<!ENTITY local "file:///file:////Users/paolociccarese/Workspaces/ExternalProjects/SwanOntology/foaf-essential.owl">
+	<!ENTITY local "file:////Users/paolociccarese/Workspaces/ExternalProjects/SwanOntology/foaf-essential.owl">
   	<!ENTITY path "http://purl.org/swan/2.0/foaf-essential/">
   	<!ENTITY file "&path;">  
 ]>
