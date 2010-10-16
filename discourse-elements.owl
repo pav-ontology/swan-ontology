@@ -91,6 +91,14 @@
     	<rdfs:subClassOf rdf:resource="DiscourseElement"/>
 	</owl:Class> 
 	
+	<owl:Class rdf:about="ResearchStatement" rdfs:label="Hypothesis">
+    	<rdfs:subClassOf rdf:resource="ResearchStatement"/>
+	</owl:Class> 
+	
+	<owl:Class rdf:about="ResearchStatement" rdfs:label="Claim">
+    	<rdfs:subClassOf rdf:resource="ResearchStatement"/>
+	</owl:Class> 
+	
 	<owl:Class rdf:about="ResearchQuestion" rdfs:label="Research Question">
     	<rdfs:subClassOf rdf:resource="DiscourseElement"/>
     </owl:Class> 
