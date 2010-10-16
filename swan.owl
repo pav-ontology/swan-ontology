@@ -56,7 +56,7 @@
         <dct:contributor>Gwen Wong</dct:contributor>
         <dct:contributor>Tim Clark</dct:contributor>    	
         <dct:contributor>Marco Ocana</dct:contributor>    	
-    	<dct:publisher rdf:datatype="&xsd;string">http://swan.mindinformatics.org</dct:publisher>
+    	<dct:publisher rdf:datatype="&xsd;string">Mindinformatics, Massachusetts General Hospital</dct:publisher>
         <dct:date rdf:datatype="&xsd;string">October 12, 2010</dct:date>
         <dct:format rdf:datatype="&xsd;string">rdf/xml</dct:format>  
              

@@ -28,7 +28,7 @@
         <dct:language>en</dct:language>
         <dct:title xml:lang="en">Discourse relationships vocabulary</dct:title>
         <dct:creator rdf:resource="http://www.hcklab.org/foaf.rdf#me" /> 
-        <dct:publisher rdf:resource="http://swan.mindinformatics.org" />
+        <dct:publisher rdf:datatype="&xsd;string">Mindinformatics, Massachusetts General Hospital</dct:publisher>
         <dct:contributor rdf:datatype="&xsd;string">Paolo Ciccarese</dct:contributor>
         <dct:contributor rdf:datatype="&xsd;string">Marco Ocana</dct:contributor>
         <dct:contributor rdf:datatype="&xsd;string">Elizabeth Wu</dct:contributor>

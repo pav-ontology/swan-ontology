@@ -39,7 +39,7 @@
         <dct:creator rdf:resource="http://www.hcklab.org/foaf.rdf#me" /> 
         <dct:contributor rdf:datatype="&xsd;string">Paolo Ciccarese</dct:contributor>
         <dct:contributor rdf:datatype="&xsd;string">Alan Ruttenberg</dct:contributor>
-        <dct:publisher rdf:datatype="&xsd;string">http://swan.mindinformatics.org</dct:publisher>
+        <dct:publisher rdf:datatype="&xsd;string">Mindinformatics, Massachusetts General Hospital</dct:publisher>
         <dct:date rdf:datatype="&xsd;string">October 12, 2010</dct:date>
         <dct:format rdf:datatype="&xsd;string">rdf/xml</dct:format>
   	</owl:Ontology>
