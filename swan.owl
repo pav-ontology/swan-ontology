@@ -32,6 +32,10 @@
   	<!ENTITY discourse-relationships-local "file:////Users/paolociccarese/Workspaces/ExternalProjects/SwanOntology/discourse-relationships.owl">
   	<!ENTITY discourse-relationships-path "http://purl.org/swan/2.0/discourse-relationships/">
   	<!ENTITY discourse-relationships-file "&discourse-relationships-path;">
+  	
+  	<!ENTITY fabio-local "file:////Users/paolociccarese/Workspaces/ExternalProjects/SwanOntology/2011-11-10-fabio-1_0.owl">
+  	<!ENTITY fabio-path "http://purl.org/spar/fabio">
+  	<!ENTITY fabio-file "&fabio-path;">
 ]>
 
 <rdf:RDF
@@ -51,6 +55,7 @@
     	<owl:imports rdf:resource="&agents-file;"/>
     	<owl:imports rdf:resource="&discourse-elements-file;"/>
     	<owl:imports rdf:resource="&discourse-relationships-file;"/>
+    	<owl:imports rdf:resource="&fabio-file;"/>
     	
     	<dct:language>en</dct:language>
     	<dct:title xml:lang="en">SWAN Ontology for Scientific Discourse v. 2.0</dct:title>
