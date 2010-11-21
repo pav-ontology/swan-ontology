@@ -28,6 +28,7 @@
      
     <owl:Ontology rdf:about="">
     	<dct:creator rdf:resource="http://www.hcklab.org/foaf.rdf#me" /> 
+    	<dct:creator rdf:datatype="&xsd;string">Paolo Ciccarese</dct:creator>
         <dct:publisher rdf:datatype="&xsd;string">Mindinformatics, Massachusetts General Hospital</dct:publisher>
         <dct:contributor rdf:datatype="&xsd;string">Paolo Ciccarese</dct:contributor>
     
