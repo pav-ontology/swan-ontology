@@ -91,20 +91,20 @@
     	<rdfs:subClassOf rdf:resource="DiscourseElement"/>
 	</owl:Class> 
 	
-	<owl:Class rdf:about="ResearchStatement" rdfs:label="swande: Hypothesis">
+	<owl:Class rdf:about="Hypothesis" rdfs:label="swande: Hypothesis">
     	<rdfs:subClassOf rdf:resource="ResearchStatement"/>
     	<rdfs:comment rdf:datatype="&xsd;string">A hypothesis is a statement proposing one or 
     	more ideas, which has a provisional nature</rdfs:comment>
 	</owl:Class> 
 	
-	<owl:Class rdf:about="ResearchStatement" rdfs:label="swande: Claim">
+	<owl:Class rdf:about="Claim" rdfs:label="swande: Claim">
     	<rdfs:subClassOf rdf:resource="ResearchStatement"/>
     	<rdfs:comment rdf:datatype="&xsd;string">A claim is a research statement that is 
     	accepted by the author/curator as reasonable. Unlike a hypothesis, its author/curator 
     	does not consider it provisional, but proven.</rdfs:comment>
 	</owl:Class> 
 	
-	<owl:Class rdf:about="ResearchQuestion" rdfs:label="swande: Research Question">
+	<owl:Class rdf:about="Question" rdfs:label="swande: Research Question">
     	<rdfs:subClassOf rdf:resource="DiscourseElement"/>
     </owl:Class> 
      
