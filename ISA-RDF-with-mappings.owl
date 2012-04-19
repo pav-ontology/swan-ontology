@@ -1,0 +1,926 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY experiment "http://purl.org/swan/2.0/experiment#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ISA-RDF "http://something.org/1.3/ISA-RDF.owl#" >
+    <!ENTITY opmv "http://purl.org/net/opmv/ns#" >
+    <!ENTITY mimv "http://purl.org/net/mim/ns#" >
+    <!ENTITY swande "http://purl.org/swan/2.0/discourse-elements/" >
+    <!ENTITY swanrel "http://purl.org/swan/2.0/discourse-relationships/" >
+]>
+
+
+<rdf:RDF xmlns="&ISA-RDF;"
+     xml:base="&ISA-RDF;"
+     xmlns:rdfs="&rdfs;"
+     xmlns:ISA-RDF="&ISA-RDF;"
+     xmlns:opm-v="&opmv;"
+     xmlns:mimv-v="&mimv;"
+     xmlns:swan-de="&swande;"
+     xmlns:swan-rel="&swanrel;"
+     xmlns:experiment="&experiment;"
+     xmlns:owl="&owl;"
+     xmlns:xsd="&xsd;"
+     xmlns:rdf="&rdf;">
+     
+    <owl:Ontology rdf:about="&experiment;">
+    	
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#acquires -->
+
+    <owl:ObjectProperty rdf:about="&experiment;acquires">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#classifies -->
+
+    <owl:ObjectProperty rdf:about="&experiment;classifies">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#derived_from -->
+
+    <owl:ObjectProperty rdf:about="&experiment;derived_from"/>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#generated_by -->
+
+    <owl:ObjectProperty rdf:about="&experiment;generated_by">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#has_biomaterial_characteristics -->
+
+    <owl:ObjectProperty rdf:about="&experiment;has_biomaterial_characteristics">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#has_input -->
+
+    <owl:ObjectProperty rdf:about="&experiment;has_input">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#has_output -->
+
+    <owl:ObjectProperty rdf:about="&experiment;has_output">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#has_part -->
+
+    <owl:ObjectProperty rdf:about="&experiment;has_part">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#has_partcipant -->
+
+    <owl:ObjectProperty rdf:about="&experiment;has_partcipant">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#has_quality -->
+
+    <owl:ObjectProperty rdf:about="&experiment;has_quality">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#is_a -->
+
+    <owl:ObjectProperty rdf:about="&experiment;is_a">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#is_about -->
+
+    <owl:ObjectProperty rdf:about="&experiment;is_about"/>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#part_of -->
+
+    <owl:ObjectProperty rdf:about="&experiment;part_of">
+        <owl:inverseOf rdf:resource="&experiment;has_part"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#participates_in -->
+
+    <owl:ObjectProperty rdf:about="&experiment;participates_in">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#specifies -->
+
+    <owl:ObjectProperty rdf:about="&experiment;specifies">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#was_generated_by -->
+
+    <owl:ObjectProperty rdf:about="&experiment;was_generated_by">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="&owl;topObjectProperty"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#has_keyword -->
+
+    <owl:DatatypeProperty rdf:about="&experiment;has_keyword">
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#has_researcher -->
+
+    <owl:DatatypeProperty rdf:about="&experiment;has_researcher">
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#has_study_description -->
+
+    <owl:DatatypeProperty rdf:about="&experiment;has_study_description">
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#has_study_name -->
+
+    <owl:DatatypeProperty rdf:about="&experiment;has_study_name">
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="&owl;topDataProperty">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Acquire_Data -->
+
+    <owl:Class rdf:about="&experiment;Acquire_Data">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;has_output"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Primary_Data"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;part_of"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Study"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Acquire_Materials -->
+
+    <owl:Class rdf:about="&experiment;Acquire_Materials">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;acquires"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Study_MaterialsSet"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;part_of"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Study"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Assay -->
+
+    <owl:Class rdf:about="&experiment;Assay">
+        <rdfs:subClassOf rdf:resource="&experiment;Acquire_Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Biological_Factor -->
+
+    <owl:Class rdf:about="&experiment;Biological_Factor">
+        <rdfs:subClassOf rdf:resource="&experiment;Study_Factor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Biomaterial -->
+
+    <owl:Class rdf:about="&experiment;Biomaterial">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;derived_from"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Population"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;part_of"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Study_MaterialsSet"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;participates_in"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Assay"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;has_biomaterial_characteristics"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Biomaterial_Characteristics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Biomaterial_Characteristics -->
+
+    <owl:Class rdf:about="&experiment;Biomaterial_Characteristics">
+        <rdfs:subClassOf rdf:resource="&experiment;Biological_Factor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Case_Control_Design -->
+
+    <owl:Class rdf:about="&experiment;Case_Control_Design">
+        <rdfs:subClassOf rdf:resource="&experiment;Observational_Design"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Characteristics -->
+
+    <owl:Class rdf:about="&experiment;Characteristics"/>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Cohort_Based_Design -->
+
+    <owl:Class rdf:about="&experiment;Cohort_Based_Design">
+        <rdfs:subClassOf rdf:resource="&experiment;Observational_Design"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Cross-sectional_Design -->
+
+    <owl:Class rdf:about="&experiment;Cross-sectional_Design">
+        <rdfs:subClassOf rdf:resource="&experiment;Observational_Design"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#DataSet -->
+
+    <owl:Class rdf:about="&experiment;DataSet"/>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Derived_Data -->
+
+    <owl:Class rdf:about="&experiment;Derived_Data">
+        <rdfs:subClassOf rdf:resource="&experiment;DataSet"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;generated_by"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Transform_Data"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;derived_from"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Primary_Data"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Design -->
+
+    <owl:Class rdf:about="&experiment;Design">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;was_generated_by"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Plan_Study"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;part_of"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Study"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Environmental_Factor -->
+
+    <owl:Class rdf:about="&experiment;Environmental_Factor">
+        <rdfs:subClassOf rdf:resource="&experiment;Study_Factor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Interpret_Data -->
+
+    <owl:Class rdf:about="&experiment;Interpret_Data">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;has_input"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Derived_Data"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;part_of"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Study"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Interventional_Design -->
+
+    <owl:Class rdf:about="&experiment;Interventional_Design">
+        <rdfs:subClassOf rdf:resource="&experiment;Design"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Investigation -->
+
+    <owl:Class rdf:about="&experiment;Investigation">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;is_a"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Study"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Measurement -->
+
+    <owl:Class rdf:about="&experiment;Measurement">
+        <rdfs:subClassOf rdf:resource="&experiment;Acquire_Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Methodological_Factor -->
+
+    <owl:Class rdf:about="&experiment;Methodological_Factor">
+        <rdfs:subClassOf rdf:resource="&experiment;Study_Factor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Observational_Design -->
+
+    <owl:Class rdf:about="&experiment;Observational_Design">
+        <rdfs:subClassOf rdf:resource="&experiment;Design"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Plan_Study -->
+
+    <owl:Class rdf:about="&experiment;Plan_Study">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;part_of"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Study"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;was_generated_by"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Plan_Study"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Population -->
+
+    <owl:Class rdf:about="&experiment;Population">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;participates_in"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Measurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;has_quality"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Characteristics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Primary_Data -->
+
+    <owl:Class rdf:about="&experiment;Primary_Data">
+        <rdfs:subClassOf rdf:resource="&experiment;DataSet"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;is_about"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Biomaterial"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;was_generated_by"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Assay"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;is_about"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Population"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Protocol -->
+
+    <owl:Class rdf:about="&experiment;Protocol">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;was_generated_by"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Plan_Study"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;specifies"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Assay"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;participates_in"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Design"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Publication -->
+
+    <owl:Class rdf:about="&experiment;Publication">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;generated_by"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Publish_Results"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Publish_Results -->
+
+    <owl:Class rdf:about="&experiment;Publish_Results">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;part_of"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Study"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+    <!-- http://purl.org/swan/2.0/experiment#Study -->
+
+    <owl:Class rdf:about="&experiment;Study">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;has_study_description"/>
+                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;has_researcher"/>
+                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;has_study_name"/>
+                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;has_keyword"/>
+                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;part_of"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Investigation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Study_Factor -->
+
+    <owl:Class rdf:about="&experiment;Study_Factor">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;participates_in"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Design"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;is_a"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Characteristics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;part_of"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Study_FactorSet"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Study_FactorSet -->
+
+    <owl:Class rdf:about="&experiment;Study_FactorSet">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;was_generated_by"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Plan_Study"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Study_MaterialsSet -->
+
+    <owl:Class rdf:about="&experiment;Study_MaterialsSet"/>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Study_Type -->
+
+    <owl:Class rdf:about="&experiment;Study_Type">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;classifies"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Design"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/swan/2.0/experiment#Transform_Data -->
+
+    <owl:Class rdf:about="&experiment;Transform_Data">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;has_input"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Primary_Data"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;part_of"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Study"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;has_output"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Derived_Data"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&ISA-RDF;genid13">
+        <rdfs:comment></rdfs:comment>
+    </rdf:Description>
+    
+     <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Integration with OPM-V
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+     
+    <owl:Class rdf:about="&opmv;Process"/>
+     
+    <owl:Class rdf:about="&experiment;Acquire_Data">
+    	<rdfs:subClassOf rdf:resource="&opmv;Process"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;Acquire_Materials">
+    	<rdfs:subClassOf rdf:resource="&opmv;Process"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;Transform_Data">
+        <rdfs:subClassOf rdf:resource="&opmv;Process"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;Interpret_Data">
+    	<rdfs:subClassOf rdf:resource="&opmv;Process"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;Plan_Study">
+    	<rdfs:subClassOf rdf:resource="&opmv;Process"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;Publish_Results">
+        <rdfs:subClassOf rdf:resource="&opmv;Process"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;Study">
+        <rdfs:subClassOf rdf:resource="&opmv;Process"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;Transform_Data">
+        <rdfs:subClassOf rdf:resource="&opmv;Process"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&opmv;Artifact">
+    	<owl:disjointWith rdf:resource="&opmv;Process" />
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;Study_Type">
+    	<rdfs:subClassOf rdf:resource="&opmv;Artifact"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;Study_Factor">
+    	<rdfs:subClassOf rdf:resource="&opmv;Artifact"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;Study_FactorSet">
+   		<rdfs:subClassOf rdf:resource="&opmv;Artifact"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;Biomaterial">
+   		<rdfs:subClassOf rdf:resource="&opmv;Artifact"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;Study_MaterialsSet">
+   		<rdfs:subClassOf rdf:resource="&opmv;Artifact"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;Characteristics">
+   		<rdfs:subClassOf rdf:resource="&opmv;Artifact"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;DataSet">
+   		<rdfs:subClassOf rdf:resource="&opmv;Artifact"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;Derived_Data">
+   		<rdfs:subClassOf rdf:resource="&opmv;Artifact"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;Design">
+   		<rdfs:subClassOf rdf:resource="&opmv;Artifact"/>
+    </owl:Class>
+
+	<owl:Class rdf:about="&experiment;Population">
+   		<rdfs:subClassOf rdf:resource="&opmv;Artifact"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;Primary_Data">
+   		<rdfs:subClassOf rdf:resource="&opmv;Artifact"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;Protocol">
+   		<rdfs:subClassOf rdf:resource="&opmv;Artifact"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;Publication">
+   		<rdfs:subClassOf rdf:resource="&opmv;Artifact"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;Population">
+   		<rdfs:subClassOf rdf:resource="&opmv;Artifact"/>
+    </owl:Class>
+    
+	<!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Integration with MIMV
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+    <owl:Class rdf:about="&mimv;RequirementSet"/>
+     
+    <owl:ObjectProperty rdf:about="&experiment;subscribes_to">
+    </owl:ObjectProperty>
+    
+    <owl:Class rdf:about="&experiment;Study">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;subscribes_to"/>
+                <owl:someValuesFrom rdf:resource="&mimv;RequirementSet"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+	<!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Integration with SWAN
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+    <owl:Class rdf:about="&swande;Hypothesis">
+    </owl:Class>
+    
+    <owl:Class rdf:about="&swande;Claim">
+    	<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;was_generated_by"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Interpret_Data"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&swande;Question">
+    	<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&swanrel;motivates"/>
+                <owl:someValuesFrom rdf:resource="&experiment;Study"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;Publication">
+   		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;argues_for"/>
+                <owl:someValuesFrom rdf:resource="&swande;Claim"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&experiment;Study">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&experiment;tests"/>
+                <owl:someValuesFrom rdf:resource="&swande;Hypothesis"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+    <owl:ObjectProperty rdf:about="&swanrel;motivates">
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="&experiment;argues_for">
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="&experiment;tests">
+    </owl:ObjectProperty>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1469) http://owlapi.sourceforge.net -->
+
