@@ -1,0 +1,941 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Created by Paolo Ciccarese http://www.hcklab.org/people/pc/ on October 7th, 2008 -->
+
+<!DOCTYPE rdf:RDF [
+    <!-- Other namespaces -->
+    <!ENTITY xsd  "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdf  "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY owl  "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc   "http://purl.org/dc/elements/1.1/" >
+ 
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/">
+    <!ENTITY pav "http://swan.mindinformatics.org/ontologies/1.2/pav/">
+  	<!ENTITY collections "http://swan.mindinformatics.org/ontologies/1.2/collections/">
+  	<!ENTITY reification "http://swan.mindinformatics.org/ontologies/1.2/reification/">
+    
+    <!-- Main namespace -->
+    <!ENTITY agents "http://swan.mindinformatics.org/ontologies/1.2/agents/" >
+    
+    <!-- Main files -->
+  	<!ENTITY local "file:///Users/paolociccarese/Websites/Mindinformatics/ontologies/1.2/agents.owl">
+  	<!ENTITY path "http://swan.mindinformatics.org/ontologies/1.2/agents.owl">
+  	<!ENTITY file "&path;">  
+  	
+  	<!-- Previous file -->
+  	<!ENTITY previous-path "http://swan.mindinformatics.org/ontologies/1.1/agents.owl">
+  	
+  	<!-- Imported files -->
+  	<!-- Local files to be removed before release -->
+    <!ENTITY foaf-local "file:///Users/paolociccarese/Websites/Mindinformatics/ontologies/1.2/foaf-essential.owl">
+    <!ENTITY pav-local "file:///Users/paolociccarese/Websites/Mindinformatics/ontologies/1.2/pav.owl">
+  	<!ENTITY collections-local "file:///Users/paolociccarese/Websites/Mindinformatics/ontologies/1.2/collections.owl">
+  	<!ENTITY reification-local "file:///Users/paolociccarese/Websites/Mindinformatics/ontologies/1.2/reification.owl">
+  	
+  	<!ENTITY reification-path "http://swan.mindinformatics.org/ontologies/1.2/reification.owl">
+    <!ENTITY foaf-path "http://swan.mindinformatics.org/ontologies/1.2/foaf-essential.owl">
+    <!ENTITY pav-path "http://swan.mindinformatics.org/ontologies/1.2/pav.owl">
+  	<!ENTITY collections-path "http://swan.mindinformatics.org/ontologies/1.2/collections.owl">
+  	
+   	<!ENTITY foaf-file "&foaf-path;">
+  	<!ENTITY pav-file "&pav-path;">
+  	<!ENTITY collections-file "&collections-path;">
+  	<!ENTITY reification-file "&reification-path;">
+]>
+<rdf:RDF
+	xml:base="&agents;"
+	xmlns:pav="&pav;"
+	xmlns:reification="&reification;"
+    xmlns:rdfs="&rdfs;"
+    xmlns:owl="&owl;"
+    xmlns:rdf="&rdf;"
+    xmlns:xsd="&xsd;"
+    xmlns:dc="&dc;"
+    xmlns:foaf="&foaf;">
+    
+    <owl:Ontology rdf:about="&file;">
+		<rdf:type rdf:resource="&owl;Ontology"/>
+		<rdfs:label rdf:datatype="&xsd;string">Agents v. 1.2</rdfs:label>
+
+    	<owl:imports rdf:resource="&foaf-file;"/>
+    	<owl:imports rdf:resource="&collections-file;"/>
+    	<owl:imports rdf:resource="&pav-file;"/>
+    	<owl:imports rdf:resource="&reification-file;"/>
+    	    	
+    	<owl:priorVersion rdf:resource="&previous-path;"/>
+    	
+    	<dc:language>en</dc:language>
+    	<dc:title xml:lang="en">Agents ontology</dc:title>
+    	<dc:creator rdf:resource="http://www.hcklab.org/people/paolo-ciccarese/" />
+    	<dc:contributor rdf:datatype="&xsd;string">Paolo Ciccarese</dc:contributor>
+    	<dc:publisher rdf:resource="http://swan.mindinformatics.org" />
+        <dc:date rdf:datatype="&xsd;string">January 17, 2009</dc:date>
+        <dc:format rdf:datatype="&xsd;string">rdf/xml</dc:format>    
+    </owl:Ontology>   
+    
+  	<rdf:Description rdf:about="&previous-path;">
+    	<rdf:type rdf:resource="&owl;Ontology"/>
+  	</rdf:Description>
+  	
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+     
+  	<rdf:Description rdf:about="&dc;title">
+  	  	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;date">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+ 	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;creator">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;format">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;language">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;publisher">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;contributor">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>  	  	
+  	
+    
+    <!-- SWAN agents vocabulary -->
+    <!-- ++++++++++++++++++++++ -->
+    
+	<owl:Class rdf:about="Software" 
+			rdfs:label="(agents) Software">
+  		<rdfs:comment rdf:datatype="&xsd;string">
+  			Any Software agent. Useful to specify provenance of computer generated data.
+  		</rdfs:comment>
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="&foaf;Agent"/>
+    	<owl:disjointWith rdf:resource="&foaf;Person"/>
+    	<owl:disjointWith rdf:resource="&foaf;Group"/>
+    	<owl:disjointWith rdf:resource="&foaf;Organization"/>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="softwareVersion"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>	
+    	<rdfs:subClassOf>
+		    <owl:Restriction>
+		      	<owl:onProperty rdf:resource="&pav;createdBy"/>
+		      	<owl:allValuesFrom>
+		      		<owl:Class rdf:about="&foaf;Agent"/>
+				</owl:allValuesFrom>
+		    </owl:Restriction>
+		</rdfs:subClassOf>	</owl:Class>
+	
+	<owl:Class rdf:about="PersonName" rdfs:label="(agents) Person Name">
+  		<rdfs:comment rdf:datatype="&xsd;string">
+  			Person name class collects all the information available regarding a person whose identity is not yet known. Typically, integrating external resources we have to deal with people that are identified simply by name which might not uniquely identify a person and not by a unique URI.
+  		</rdfs:comment>
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<owl:disjointWith rdf:resource="&foaf;Document"/>
+    	<owl:disjointWith rdf:resource="&foaf;Project"/>
+    	<owl:disjointWith rdf:resource="&foaf;Agent"/>
+    	<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+    	
+		<rdfs:subClassOf>
+		    <owl:Restriction>
+		      	<owl:onProperty rdf:resource="&pav;createdBy"/>
+		      	<owl:allValuesFrom>
+		      		<owl:Class rdf:about="&foaf;Agent"/>
+				</owl:allValuesFrom>
+		    </owl:Restriction>
+		</rdfs:subClassOf>
+		
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="firstName"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="middleName"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="lastName"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="fullName"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>	</owl:Class>
+	
+	<owl:Class rdf:about="ReifiedAka" rdfs:label="(agents) Reified aka">
+  		<rdfs:comment rdf:datatype="&xsd;string">
+  			Reified version of property 'also known as'.
+  		</rdfs:comment>
+    	<rdfs:subClassOf rdf:resource="&reification;BinaryRelationship"/>
+    	<rdfs:subClassOf>
+	    	<owl:Restriction>
+	            <owl:onProperty rdf:resource="&reification;subject"/>
+	            <owl:allValuesFrom rdf:resource="&agents;Person"/>
+	        </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+	        <owl:Restriction>
+	            <owl:onProperty rdf:resource="&reification;object"/>
+	            <owl:allValuesFrom rdf:resource="&agents;PersonName"/>
+	        </owl:Restriction>
+        </rdfs:subClassOf>
+        <!--
+        <rdfs:subClassOf>
+	        <owl:Restriction>
+	            <owl:onProperty rdf:resource="&reification;property"/>
+	            <owl:allValuesFrom rdf:resource="aka"/>
+	        </owl:Restriction>
+        </rdfs:subClassOf>
+        -->	</owl:Class>
+
+  	<owl:ObjectProperty rdf:about="aka">
+    	<rdfs:domain rdf:resource="&foaf;Person"/>    	<rdfs:range rdf:resource="PersonName"/>  	</owl:ObjectProperty>
+
+  	<owl:DatatypeProperty rdf:about="fullName">    	<rdf:type rdf:resource="&owl;DatatypeProperty"/>
+    	<rdfs:domain>
+    	    <rdfs:Class rdf:about="PersonName"/>
+    	</rdfs:domain>    	<rdfs:range rdf:resource="&xsd;string"/>  	</owl:DatatypeProperty>
+  	
+  	<owl:DatatypeProperty rdf:about="firstName">    	<rdf:type rdf:resource="&owl;DatatypeProperty"/>
+    	<rdfs:domain>
+    	    <rdfs:Class rdf:about="PersonName"/>
+    	</rdfs:domain>    	<rdfs:range rdf:resource="&xsd;string"/>  	</owl:DatatypeProperty>
+  	
+  	<owl:DatatypeProperty rdf:about="middleName">    	<rdf:type rdf:resource="&owl;DatatypeProperty"/>
+    	<rdfs:domain>
+    	    <rdfs:Class rdf:about="PersonName"/>
+    	</rdfs:domain>    	<rdfs:range rdf:resource="&xsd;string"/>  	</owl:DatatypeProperty>
+
+  	<owl:DatatypeProperty rdf:about="lastName">    	<rdf:type rdf:resource="&owl;DatatypeProperty"/>
+    	<rdfs:domain>
+    	    <rdfs:Class rdf:about="PersonName"/>
+    	</rdfs:domain>    	<rdfs:range rdf:resource="&xsd;string"/>  	</owl:DatatypeProperty> 
+  	
+  	<owl:DatatypeProperty rdf:about="place">    	<rdf:type rdf:resource="&owl;DatatypeProperty"/>
+    	<rdfs:domain>
+    	    <rdfs:Class rdf:about="&foaf;Organization"/>
+    	</rdfs:domain>    	<rdfs:range rdf:resource="&xsd;string"/>  	</owl:DatatypeProperty>
+  	
+  	<owl:DatatypeProperty rdf:about="softwareVersion">    	<rdf:type rdf:resource="&owl;DatatypeProperty"/>
+    	<rdfs:domain>
+    	    <rdfs:Class rdf:about="Software"/>
+    	</rdfs:domain>    	<rdfs:range rdf:resource="&xsd;string"/>  	</owl:DatatypeProperty>  
+  	
+    <owl:ObjectProperty rdf:about="&foaf;homepage">
+    	<rdfs:domain>
+    		<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="PersonName"/>
+				        	<owl:Class rdf:about="&foaf;OnlineAccount"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	</owl:complementOf>
+		    </owl:Class>
+    	</rdfs:domain>
+    	<rdfs:isDefinedBy rdf:resource="&foaf;"/>
+    </owl:ObjectProperty>  
+	<owl:ObjectProperty rdf:about="&foaf;topic_interest">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="PersonName"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+	</owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="&foaf;fundedBy">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="PersonName"/>
+				        	<owl:Class rdf:about="&foaf;OnlineAccount"/>
+				        	<owl:Class rdf:about="&reification;Relationship"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="PersonName"/>
+				        	<owl:Class rdf:about="Software"/>
+				        	<owl:Class rdf:about="&foaf;OnlineAccount"/>
+				        	<owl:Class rdf:about="&foaf;Project"/>
+				        	<owl:Class rdf:about="&foaf;Document"/>
+				        	<owl:Class rdf:about="&reification;Relationship"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty> 
+    <owl:ObjectProperty rdf:about="&foaf;isPrimaryTopicOf">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="PersonName"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty> 
+    <owl:ObjectProperty rdf:about="&foaf;logo">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="PersonName"/>
+				        	<owl:Class rdf:about="&foaf;Document"/>
+				        </owl:unionOf>
+				    </owl:Class>				        			    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="&foaf;Image"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="&foaf;page">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="PersonName"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty> 
+    <owl:ObjectProperty rdf:about="&foaf;maker">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		        	<owl:Class rdf:about="PersonName"/>		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="&foaf;phone">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="PersonName"/>
+				        	<owl:Class rdf:about="&foaf;Agent"/>
+				        	<owl:Class rdf:about="&reification;Relationship"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="&foaf;currentProject">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="PersonName"/>
+				        </owl:unionOf>
+					</owl:Class>        			    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="&foaf;mbox">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="PersonName"/>
+				        	<owl:Class rdf:about="&foaf;Agent"/>
+				        	<owl:Class rdf:about="&reification;Relationship"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="&foaf;tipjar">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		        	<owl:Class rdf:about="Software"/>		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>	
+    <owl:ObjectProperty rdf:about="&foaf;depiction">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="PersonName"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="&foaf;topic_interest">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="PersonName"/>		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+    <owl:Class rdf:about="AgentList" rdfs:label="(agents) Agent List">
+     	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="&collections;List"/>
+		<rdfs:subClassOf>
+		    <owl:Restriction>
+		      	<owl:onProperty rdf:resource="&collections;item"/>
+		      	<owl:someValuesFrom rdf:resource="AgentListItem"/>
+		    </owl:Restriction>
+		</rdfs:subClassOf>
+    </owl:Class>
+    
+    <owl:Class rdf:about="AgentListItem" rdfs:label="(agents) Agent Item">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="&collections;ListItem"/>
+		<rdfs:subClassOf>
+		    <owl:Restriction>
+		      	<owl:onProperty rdf:resource="&collections;itemContent"/>
+		      	<owl:allValuesFrom rdf:resource="&foaf;Agent"/>
+		    </owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+		    <owl:Restriction>
+		      	<owl:onProperty rdf:resource="&collections;nextItem"/>
+		      	<owl:someValuesFrom rdf:resource="AgentListItem"/>
+		    </owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+		    <owl:Restriction>
+		      	<owl:onProperty rdf:resource="&collections;previousItem"/>
+		      	<owl:someValuesFrom rdf:resource="AgentListItem"/>
+		    </owl:Restriction>
+		</rdfs:subClassOf>
+    </owl:Class>
+    
+    <owl:Class rdf:about="AgentAndPersonNameList" rdfs:label="(agents) Agent and Person Name List">
+     	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="&collections;List"/>
+		<rdfs:subClassOf>
+		    <owl:Restriction>
+		      	<owl:onProperty rdf:resource="&collections;item"/>
+		      	<owl:someValuesFrom rdf:resource="AgentOrPersonNameListItem"/>
+		    </owl:Restriction>
+		</rdfs:subClassOf>
+    </owl:Class>
+    
+    <owl:Class rdf:about="AgentOrPersonNameListItem" rdfs:label="(agents) Agent or Person Name Item">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="&collections;ListItem"/>
+		<rdfs:subClassOf>
+		    <owl:Restriction>
+		      	<owl:onProperty rdf:resource="&collections;itemContent"/>
+		      	<owl:allValuesFrom>
+		      		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="PersonName"/>
+				        	<owl:Class rdf:about="&foaf;Agent"/>
+				        </owl:unionOf>
+				    </owl:Class>
+				</owl:allValuesFrom>
+		    </owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+		    <owl:Restriction>
+		      	<owl:onProperty rdf:resource="&collections;nextItem"/>
+		      	<owl:someValuesFrom rdf:resource="AgentOrPersonNameListItem"/>
+		    </owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+		    <owl:Restriction>
+		      	<owl:onProperty rdf:resource="&collections;previousItem"/>
+		      	<owl:someValuesFrom rdf:resource="AgentOrPersonNameListItem"/>
+		    </owl:Restriction>
+		</rdfs:subClassOf>
+    </owl:Class>
+    
+    <owl:Class rdf:about="GroupPersonOrganizationPersonNameList" rdfs:label="(agents) Group, Person, Organization and Person Name List">
+     	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="&collections;List"/>
+		<rdfs:subClassOf>
+		    <owl:Restriction>
+		      	<owl:onProperty rdf:resource="&collections;item"/>
+		      	<owl:someValuesFrom rdf:resource="GroupPersonOrganizationPersonNameListItem"/>
+		    </owl:Restriction>
+		</rdfs:subClassOf>
+    </owl:Class>
+    
+    <owl:Class rdf:about="GroupPersonOrganizationPersonNameListItem" rdfs:label="(agents) Group, Person, Organization or Person Name Item">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="&collections;ListItem"/>
+		<rdfs:subClassOf>
+		    <owl:Restriction>
+		      	<owl:onProperty rdf:resource="&collections;itemContent"/>
+		      	<owl:allValuesFrom>
+		      		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="PersonName"/>
+				        	<owl:Class rdf:about="&foaf;Group"/>
+				        	<owl:Class rdf:about="&foaf;Organization"/>
+				        	<owl:Class rdf:about="&foaf;Person"/>
+				        </owl:unionOf>
+				    </owl:Class>
+				</owl:allValuesFrom>
+		    </owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+		    <owl:Restriction>
+		      	<owl:onProperty rdf:resource="&collections;nextItem"/>
+		      	<owl:someValuesFrom rdf:resource="GroupPersonOrganizationPersonNameListItem"/>
+		    </owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+		    <owl:Restriction>
+		      	<owl:onProperty rdf:resource="&collections;previousItem"/>
+		      	<owl:someValuesFrom rdf:resource="GroupPersonOrganizationPersonNameListItem"/>
+		    </owl:Restriction>
+		</rdfs:subClassOf>
+    </owl:Class>
+
+    <owl:Class rdf:about="&collections;Collection">
+    	<owl:disjointWith rdf:resource="&agents;PersonName"/>
+    	<owl:disjointWith rdf:resource="&foaf;Document"/>
+    	<owl:disjointWith rdf:resource="&foaf;Project"/>
+    	<owl:disjointWith rdf:resource="&foaf;Agent"/>
+    	<owl:disjointWith rdf:resource="&agents;Software"/>
+    	<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&collections;Item">
+    	<owl:disjointWith rdf:resource="&agents;PersonName"/>
+    	<owl:disjointWith rdf:resource="&foaf;Document"/>
+    	<owl:disjointWith rdf:resource="&foaf;Project"/>
+    	<owl:disjointWith rdf:resource="&foaf;Agent"/>
+    	<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+	</owl:Class>
+
+	<owl:ObjectProperty rdf:about="&foaf;primaryTopic">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&collections;Item"/>
+				        	<owl:Class rdf:about="&collections;Collection"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty> 
+    
+	<owl:ObjectProperty rdf:about="&foaf;topic_interest">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&collections;Item"/>
+				        	<owl:Class rdf:about="&collections;Collection"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty> 
+    
+	<owl:ObjectProperty rdf:about="&foaf;depicts">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&collections;Item"/>
+				        	<owl:Class rdf:about="&collections;Collection"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty> 
+    
+	<owl:ObjectProperty rdf:about="&foaf;made">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&collections;Item"/>
+				        	<owl:Class rdf:about="&collections;Collection"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty> 
+    
+	<owl:ObjectProperty rdf:about="&foaf;topic">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&collections;Item"/>
+				        	<owl:Class rdf:about="&collections;Collection"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="&foaf;currentProject">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&collections;Item"/>
+				        	<owl:Class rdf:about="&collections;Collection"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&foaf;fundedBy">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&collections;Item"/>
+				        	<owl:Class rdf:about="&collections;Collection"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&collections;Item"/>
+				        	<owl:Class rdf:about="&collections;Collection"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>   
+    
+    <owl:ObjectProperty rdf:about="&foaf;phone">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&collections;Item"/>
+				        	<owl:Class rdf:about="&collections;Collection"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&foaf;mbox">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&collections;Item"/>
+				        	<owl:Class rdf:about="&collections;Collection"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="&pav;contributedBy">
+        <rdfs:range>
+        	<owl:Class>
+			    <owl:unionOf rdf:parseType="Collection">		        	<owl:Class rdf:about="PersonName"/>
+		        	<owl:Class rdf:about="&foaf;Agent"/>
+		        </owl:unionOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="&pav;importedBy">
+        <rdfs:range>
+        	<owl:Class rdf:about="&agents;Software"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+    <!-- Integration fixes -->
+    <owl:Class rdf:about="&reification;Relationship">
+    	<owl:disjointWith rdf:resource="&collections;Collection"/>
+    	<owl:disjointWith rdf:resource="&collections;Item"/>
+    	<owl:disjointWith rdf:resource="&agents;PersonName"/>
+    	<owl:disjointWith rdf:resource="&foaf;Document"/>
+    	<owl:disjointWith rdf:resource="&foaf;Project"/>
+    	<owl:disjointWith rdf:resource="&foaf;Agent"/>
+    	<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+	</owl:Class>
+	
+    <owl:ObjectProperty rdf:about="&pav;curatedBy">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&foaf;Agent"/>
+				        	<owl:Class rdf:about="&foaf;OnlineAccount"/>
+				        	<owl:Class rdf:about="&agents;PersonName"/>
+				        	<owl:Class rdf:about="&collections;Item"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&agents;PersonName"/>
+				        	<owl:Class rdf:about="&agents;Software"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>    
+    <owl:ObjectProperty rdf:about="&pav;curators">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&foaf;Agent"/>
+				        	<owl:Class rdf:about="&foaf;OnlineAccount"/>
+				        	<owl:Class rdf:about="&agents;PersonName"/>
+				        	<owl:Class rdf:about="&collections;Item"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&foaf;Agent"/>
+				        	<owl:Class rdf:about="&agents;PersonName"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>  
+    <owl:ObjectProperty rdf:about="&pav;contributors">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&foaf;Agent"/>
+				        	<owl:Class rdf:about="&foaf;OnlineAccount"/>
+				        	<owl:Class rdf:about="&agents;PersonName"/>
+				        	<owl:Class rdf:about="&collections;Item"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class rdf:about="&agents;AgentAndPersonNameList"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="&pav;contributedBy">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&foaf;Agent"/>
+				        	<owl:Class rdf:about="&foaf;OnlineAccount"/>
+				        	<owl:Class rdf:about="&agents;PersonName"/>
+				        	<owl:Class rdf:about="&collections;Item"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&agents;Software"/>
+				        	<owl:Class rdf:about="&agents;PersonName"/>
+				        	<owl:Class rdf:about="&collections;Item"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="&pav;lastUpdateBy">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&foaf;Project"/>
+			    			<owl:Class rdf:about="&foaf;Document"/>				        	<owl:Class rdf:about="&agents;PersonName"/>
+				        	<owl:Class rdf:about="&collections;Item"/>
+				        	<owl:Class rdf:about="&collections;Collection"/>
+				        	<owl:Class rdf:about="&reification;Relationship"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="&pav;createdBy">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&foaf;Project"/>
+			    			<owl:Class rdf:about="&foaf;Document"/>				        	<owl:Class rdf:about="&agents;PersonName"/>
+				        	<owl:Class rdf:about="&collections;Item"/>
+				        	<owl:Class rdf:about="&collections;Collection"/>
+				        	<owl:Class rdf:about="&reification;Relationship"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="&pav;importedFromSource">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    		    <owl:Class rdf:about="&foaf;Project"/>
+			    		    <owl:Class rdf:about="&foaf;OnlineAccount"/>				        	<owl:Class rdf:about="&agents;PersonName"/>
+				        	<owl:Class rdf:about="&collections;Item"/>
+				        	<owl:Class rdf:about="&collections;Collection"/>
+				        	<owl:Class rdf:about="&reification;Relationship"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="&pav;publishedBy">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&foaf;Agent"/>
+				        	<owl:Class rdf:about="&foaf;OnlineAccount"/>
+				        	<owl:Class rdf:about="&agents;PersonName"/>
+				        	<owl:Class rdf:about="&collections;Item"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&foaf;Project"/>
+			    			<owl:Class rdf:about="&foaf;Document"/>				        	<owl:Class rdf:about="&agents;PersonName"/>
+				        	<owl:Class rdf:about="&agents;Software"/>
+				        	<owl:Class rdf:about="&collections;Item"/>
+				        	<owl:Class rdf:about="&collections;Collection"/>
+				        	<owl:Class rdf:about="&reification;Relationship"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:about="&pav;publishedOn">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&foaf;Agent"/>
+				        	<owl:Class rdf:about="&foaf;OnlineAccount"/>
+				        	<owl:Class rdf:about="&agents;PersonName"/>
+				        	<owl:Class rdf:about="&collections;Item"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    <owl:ObjectProperty rdf:about="&pav;submittedBy">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&foaf;Agent"/>
+				        	<owl:Class rdf:about="&agents;PersonName"/>
+				        	<owl:Class rdf:about="&collections;Item"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&foaf;Document"/>				        	<owl:Class rdf:about="&agents;Software"/>
+				        	<owl:Class rdf:about="&agents;PersonName"/>
+				        	<owl:Class rdf:about="&collections;Item"/>
+				        	<owl:Class rdf:about="&reification;Relationship"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:about="&pav;submittedOn">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&foaf;Agent"/>
+				        	<owl:Class rdf:about="&agents;PersonName"/>
+				        	<owl:Class rdf:about="&collections;Item"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="&pav;acceptedOn">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&foaf;Agent"/>
+				        	<owl:Class rdf:about="&agents;PersonName"/>
+				        	<owl:Class rdf:about="&collections;Item"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="&pav;sourceAccessedOn">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&foaf;Agent"/>
+				        	<owl:Class rdf:about="&foaf;OnlineAccount"/>
+				        	<owl:Class rdf:about="&agents;PersonName"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="&pav;sourceLastAccessedOn">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&foaf;Agent"/>
+				        	<owl:Class rdf:about="&foaf;OnlineAccount"/>
+				        	<owl:Class rdf:about="&agents;PersonName"/>
+				        	<owl:Class rdf:about="&collections;Item"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="&pav;sourceFirstAccessedOn">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&foaf;Agent"/>
+				        	<owl:Class rdf:about="&foaf;OnlineAccount"/>
+				        	<owl:Class rdf:about="&agents;PersonName"/>
+				        	<owl:Class rdf:about="&collections;Item"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+</rdf:RDF>

@@ -1,0 +1,1048 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Created by Paolo Ciccarese http://www.hcklab.org/people/pc/ on October 15th, 2008 -->
+
+<!DOCTYPE rdf:RDF [
+    <!-- Other namespaces -->
+    <!ENTITY xsd  "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdf  "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY owl  "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc   "http://purl.org/dc/elements/1.1/" >
+ 
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/">
+    <!ENTITY pav "http://swan.mindinformatics.org/ontologies/1.2/pav/">
+  	<!ENTITY collections "http://swan.mindinformatics.org/ontologies/1.2/collections/">
+  	<!ENTITY agents "http://swan.mindinformatics.org/ontologies/1.2/agents/">
+    
+    <!-- Main namespace -->
+    <!ENTITY citations "http://swan.mindinformatics.org/ontologies/1.2/citations/" >
+    
+    <!-- Files -->
+  	<!ENTITY local "file:///Users/paolociccarese/Websites/Mindinformatics/ontologies/1.2/citations.owl">
+  	<!ENTITY path "http://swan.mindinformatics.org/ontologies/1.2/citations.owl">
+  	<!ENTITY file "&path;">  
+  	
+  	<!-- Previous file -->
+  	<!ENTITY previous-path "http://swan.mindinformatics.org/ontologies/1.1/citations.owl">
+  	
+  	<!-- Imported files -->
+    <!ENTITY agents-local "file:///Users/paolociccarese/Websites/Mindinformatics/ontologies/1.2/agents.owl">
+    <!ENTITY agents-path "http://swan.mindinformatics.org/ontologies/1.2/agents.owl">
+  	<!ENTITY agents-file "&agents-path;">
+]>
+
+<rdf:RDF
+	xml:base="&citations;"
+	xmlns:citations="&citations;"
+	xmlns:agents="&agents;"
+	xmlns:collections="&collections;"
+	xmlns:pav="&pav;"
+    xmlns:rdfs="&rdfs;"
+    xmlns:owl="&owl;"
+    xmlns:rdf="&rdf;"
+    xmlns:xsd="&xsd;"
+    xmlns:dc="&dc;"
+    xmlns:foaf="&foaf;" >
+    
+    <owl:Ontology rdf:about="&file;">
+		<rdf:type rdf:resource="&owl;Ontology"/>
+		<rdfs:label rdf:datatype="&xsd;string">Citations v. 1.2</rdfs:label>
+
+		<owl:imports rdf:resource="&agents-file;"/>
+
+    	<owl:priorVersion rdf:resource="&previous-path;"/>
+    	
+    	<dc:language>en</dc:language>
+    	<dc:title xml:lang="en">Citations ontology</dc:title>
+    	<dc:creator rdf:resource="http://www.hcklab.org/people/paolo-ciccarese/" />
+    	<dc:contributor rdf:datatype="&xsd;string">Paolo Ciccarese</dc:contributor>
+        <dc:contributor>Elizabeth Wu</dc:contributor>
+        <dc:contributor>Alan Ruttenberg</dc:contributor>
+        <dc:contributor>Marco Ocana</dc:contributor>  
+        <dc:contributor>Tim Clark</dc:contributor>    	
+    	<dc:publisher rdf:datatype="&xsd;string">http://swan.mindinformatics.org</dc:publisher>
+        <dc:date rdf:datatype="&xsd;string">September 12, 2009</dc:date>
+        <dc:format rdf:datatype="&xsd;string">rdf/xml</dc:format>       
+    </owl:Ontology> 
+    
+  	<rdf:Description rdf:about="&previous-path;">
+    	<rdf:type rdf:resource="&owl;Ontology"/>
+  	</rdf:Description>   
+  	
+  	
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+     
+  	<rdf:Description rdf:about="&dc;title">
+  	  	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;date">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+ 	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;creator">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;format">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;language">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;publisher">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;contributor">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>  	 
+  	
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+     
+    <owl:ObjectProperty rdf:about="contributionAuthor">
+    	<rdfs:domain>
+    		<owl:Class rdf:about="Citation"/>
+    	</rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+			    <owl:unionOf rdf:parseType="Collection">				    <owl:Class rdf:about="&agents;PersonName"/>
+			    	<owl:Class rdf:about="&foaf;Agent"/>
+		        </owl:unionOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="contributionAuthors">
+    	<rdfs:domain>
+    		<owl:Class rdf:about="Citation"/>
+    	</rdfs:domain>
+        <rdfs:range>
+        	<owl:Class rdf:about="&agents;AgentAndPersonNameList"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="belongsTo">
+    	<rdfs:domain>
+    		<owl:Class rdf:about="BookChapter"/>
+    	</rdfs:domain>
+    	<rdfs:range rdf:resource="Book"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="contributionPublisher">
+    	<rdfs:domain>
+    		<owl:Class rdf:about="Citation"/>
+    	</rdfs:domain>
+    	<rdfs:range rdf:resource="Publisher"/>
+    	<owl:inverseOf rdf:resource="publishesContributionWithCitation"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="publishedBy">
+    	<rdfs:domain>
+    		<owl:Class rdf:about="PublicationEnvironment"/>
+    	</rdfs:domain>
+    	<rdfs:range rdf:resource="Publisher"/>
+    	<owl:inverseOf rdf:resource="publishes"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="publishes">
+    	<rdfs:domain>
+    		<owl:Class rdf:about="Publisher"/>
+    	</rdfs:domain>
+    	<rdfs:range rdf:resource="PublicationEnvironment"/>
+    	<owl:inverseOf rdf:resource="publishedBy"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="publishesContributionWithCitation">
+    	<rdfs:domain>
+    		<owl:Class rdf:about="Publisher"/>
+    	</rdfs:domain>
+    	<rdfs:range rdf:resource="Citation"/>
+    	<owl:inverseOf rdf:resource="contributionPublisher"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="contributionPublicationEnvironment">
+    	<rdfs:domain>
+    		<owl:Class rdf:about="Citation"/>
+    	</rdfs:domain>
+    	<rdfs:range rdf:resource="PublicationEnvironment"/>
+    </owl:ObjectProperty>
+    
+    <owl:DatatypeProperty rdf:about="contributionPublicationDate">
+    	<rdfs:domain>
+    		<owl:Class rdf:about="Citation"/>
+    	</rdfs:domain>
+    	<rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>    
+    
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->       	
+  	<owl:DatatypeProperty rdf:about="title">
+    	<rdfs:domain>
+    		<owl:Class>
+	    		<owl:unionOf rdf:parseType="Collection">
+    	    		<rdfs:Class rdf:about="Citation"/>
+    	    		<rdfs:Class rdf:about="PublicationEnvironment"/>
+    	    	</owl:unionOf>
+    		</owl:Class>
+    	</rdfs:domain>
+    	<rdfs:range rdf:resource="&xsd;string"/>
+  	</owl:DatatypeProperty> 
+  	
+  	<owl:DatatypeProperty rdf:about="shortTitle">
+    	<rdfs:domain>
+    		<owl:Class>
+	    		<owl:unionOf rdf:parseType="Collection">
+    	    		<rdfs:Class rdf:about="PublicationEnvironment"/>
+    	    	</owl:unionOf>
+    		</owl:Class>
+    	</rdfs:domain>
+    	<rdfs:range rdf:resource="&xsd;string"/>
+  	</owl:DatatypeProperty> 	        
+     
+  	<owl:DatatypeProperty rdf:about="volume">
+    	<rdfs:domain>
+    	    <owl:Class>
+	    		<owl:unionOf rdf:parseType="Collection">
+	    			<rdfs:Class rdf:about="JournalArticle"/>
+	    			<rdfs:Class rdf:about="JournalComment"/>
+	    			<rdfs:Class rdf:about="JournalNews"/>
+	    			<rdfs:Class rdf:about="NewspaperArticle"/>
+	    			<rdfs:Class rdf:about="NewspaperNews"/>
+	    		</owl:unionOf>
+    		</owl:Class>
+    	</rdfs:domain>
+  	</owl:DatatypeProperty>	
+  	
+  	<owl:DatatypeProperty rdf:about="issue">
+    	<rdfs:domain>
+    	    <owl:Class>
+	    		<owl:unionOf rdf:parseType="Collection">
+	    			<rdfs:Class rdf:about="JournalArticle"/>
+	    			<rdfs:Class rdf:about="JournalComment"/>
+	    			<rdfs:Class rdf:about="JournalNews"/>
+	    			<rdfs:Class rdf:about="NewspaperArticle"/>
+	    			<rdfs:Class rdf:about="NewspaperNews"/>
+	    		</owl:unionOf>
+    		</owl:Class>
+    	</rdfs:domain>
+  	</owl:DatatypeProperty>	
+  	
+  	<owl:DatatypeProperty rdf:about="pagination">
+    	<rdfs:domain>
+    	    <owl:Class>
+	    		<owl:unionOf rdf:parseType="Collection">
+	    			<rdfs:Class rdf:about="JournalArticle"/>
+	    			<rdfs:Class rdf:about="JournalComment"/>
+	    			<rdfs:Class rdf:about="JournalNews"/>
+	    			<rdfs:Class rdf:about="NewspaperArticle"/>
+	    			<rdfs:Class rdf:about="NewspaperNews"/>
+	    		</owl:unionOf>
+    		</owl:Class>
+    	</rdfs:domain>
+  	</owl:DatatypeProperty>	
+    
+  	<owl:DatatypeProperty rdf:about="issn">
+    	<rdfs:domain>
+    	    <owl:Class>
+	    		<owl:unionOf rdf:parseType="Collection">
+	    			<rdfs:Class rdf:about="JournalArticle"/>
+	    			<rdfs:Class rdf:about="JournalComment"/>
+	    			<rdfs:Class rdf:about="JournalNews"/>
+	    			<rdfs:Class rdf:about="NewspaperArticle"/>
+	    			<rdfs:Class rdf:about="NewspaperNews"/>
+	    		</owl:unionOf>
+    		</owl:Class>
+    	</rdfs:domain>
+  	</owl:DatatypeProperty>	   
+  	
+  	<owl:DatatypeProperty rdf:about="isbn10">
+    	<rdfs:domain>
+    	    <owl:Class>
+	    		<owl:unionOf rdf:parseType="Collection">
+	    			<rdfs:Class rdf:about="Book"/>
+	    		</owl:unionOf>
+    		</owl:Class>
+    	</rdfs:domain>
+  	</owl:DatatypeProperty>	
+  	
+  	<owl:DatatypeProperty rdf:about="isbn13">
+    	<rdfs:domain>
+    	    <owl:Class>
+	    		<owl:unionOf rdf:parseType="Collection">
+	    			<rdfs:Class rdf:about="Book"/>
+	    		</owl:unionOf>
+    		</owl:Class>
+    	</rdfs:domain>
+  	</owl:DatatypeProperty>	
+  	
+  	<owl:DatatypeProperty rdf:about="doi">
+    	<rdfs:domain>
+    	    <owl:Class>
+	    		<owl:unionOf rdf:parseType="Collection">
+	    			<rdfs:Class rdf:about="JournalArticle"/>
+	    			<rdfs:Class rdf:about="JournalComment"/>
+	    			<rdfs:Class rdf:about="JournalNews"/>
+	    		</owl:unionOf>
+    		</owl:Class>
+    	</rdfs:domain>
+  	</owl:DatatypeProperty>	     
+  	
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->  	 
+    
+    <owl:Class rdf:about="CitationsList" rdfs:label="(citations) Citations List">
+    	<rdfs:subClassOf rdf:resource="&collections;List"/>
+		<rdfs:subClassOf>
+		    <owl:Restriction>
+		      	<owl:onProperty rdf:resource="&collections;item"/>
+		      	<owl:someValuesFrom rdf:resource="CitationListItem"/>
+		    </owl:Restriction>
+		</rdfs:subClassOf>
+    </owl:Class>
+    
+    <owl:Class rdf:about="CitationsListItem" rdfs:label="(citations) Citations List Item">
+    	<rdfs:subClassOf rdf:resource="&collections;ListItem"/>
+		<rdfs:subClassOf>
+		    <owl:Restriction>
+		      	<owl:onProperty rdf:resource="&collections;itemContent"/>
+		      	<owl:allValuesFrom>
+		      		<owl:Class rdf:about="Citation"/>
+				</owl:allValuesFrom>
+		    </owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+		    <owl:Restriction>
+		      	<owl:onProperty rdf:resource="&collections;nextItem"/>
+		      	<owl:someValuesFrom rdf:resource="CitationsListItem"/>
+		    </owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+		    <owl:Restriction>
+		      	<owl:onProperty rdf:resource="&collections;previousItem"/>
+		      	<owl:someValuesFrom rdf:resource="CitationsListItem"/>
+		    </owl:Restriction>
+		</rdfs:subClassOf>
+    </owl:Class>
+    
+    <owl:Class rdf:about="Expression" rdfs:label="(citations) Expression">
+    	<owl:disjointWith rdf:resource="Citation"/>
+    	<owl:disjointWith rdf:resource="PublicationEnvironment"/>
+    	<owl:disjointWith rdf:resource="&agents;PersonName"/>
+    	<owl:disjointWith rdf:resource="&foaf;Document"/>
+    	<owl:disjointWith rdf:resource="&foaf;Project"/>
+    	<owl:disjointWith rdf:resource="&foaf;Agent"/>
+    	<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+    	<owl:disjointWith rdf:resource="&collections;Collection"/>
+    	<owl:disjointWith rdf:resource="&collections;Item"/>
+   	</owl:Class>
+   	
+   	<owl:Class rdf:about="Article" rdfs:label="(citations) Article Expression">
+    	<rdfs:subClassOf rdf:resource="Expression"/>
+	</owl:Class>
+	<owl:Class rdf:about="News" rdfs:label="(citations) News Expression">
+    	<rdfs:subClassOf rdf:resource="Expression"/>
+	</owl:Class>
+	<owl:Class rdf:about="Comment" rdfs:label="(citations) Comment Expression">
+    	<rdfs:subClassOf rdf:resource="Expression"/>
+	</owl:Class>
+	<owl:Class rdf:about="Image" rdfs:label="(citations) Image Expression">
+    	<rdfs:subClassOf rdf:resource="Expression"/>
+	</owl:Class>
+	<owl:Class rdf:about="Poster" rdfs:label="(citations) Poster Expression">
+    	<rdfs:subClassOf rdf:resource="Expression"/>
+	</owl:Class>
+	<owl:Class rdf:about="Interview" rdfs:label="(citations) Interview Expression">
+    	<rdfs:subClassOf rdf:resource="Expression"/>
+	</owl:Class>
+	<owl:Class rdf:about="Discussion" rdfs:label="(citations) Discussion Expression">
+    	<rdfs:subClassOf rdf:resource="Expression"/>
+	</owl:Class>
+	<owl:Class rdf:about="Data" rdfs:label="(citations) Data Expression">
+    	<rdfs:subClassOf rdf:resource="Expression"/>
+	</owl:Class>
+      	
+	<owl:Class rdf:about="Citation" rdfs:label="(citations) Citation (or Manifestation Record)">
+    	<rdfs:comment rdf:datatype="&xsd;string">Information which fully identifies a publication. A complete citation usually includes author, title, name of journal (if the citation is to an article) or publisher (if to a book), and date. Often pages, volumes and other information will be included in a citation.</rdfs:comment>
+    	
+    	<owl:disjointWith rdf:resource="&agents;PersonName"/>
+    	<owl:disjointWith rdf:resource="&foaf;Document"/>
+    	<owl:disjointWith rdf:resource="&foaf;Project"/>
+    	<owl:disjointWith rdf:resource="&foaf;Agent"/>
+    	<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+    	<owl:disjointWith rdf:resource="&collections;Collection"/>
+    	<owl:disjointWith rdf:resource="&collections;Item"/>
+    	
+    	<!-- Software Provenance -->
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&pav;importedBy"/>
+             	</owl:onProperty>
+             	<owl:allValuesFrom rdf:resource="&agents;Software"/>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&pav;importedBy"/>
+             	</owl:onProperty>
+             	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;importedOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>	
+		
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;importedFirstOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+		
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;importedLastOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="&pav;importedFromSource"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+		
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;importedWithId"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+		
+		<!-- Human Provenance -->
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&pav;createdBy"/>
+             	</owl:onProperty>
+             	<owl:allValuesFrom rdf:resource="&agents;Person"/>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&pav;createdBy"/>
+             	</owl:onProperty>
+             	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;createdOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+		
+		<!-- Authoring -->
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="contributionAuthor"/>			  	<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="contributionAuthors"/>				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>	
+		
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="contributionPublisher"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+		
+		<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="contributionPublicationEnvironment"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>	
+		
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="contributionPublicationDate"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>	</owl:Class>  
+	
+	<owl:Class rdf:about="Book" rdfs:label="(citations) Book">
+    	<rdfs:subClassOf rdf:resource="Citation"/>
+    	
+    	<owl:disjointWith rdf:resource="JournalComment"/>
+    	<owl:disjointWith rdf:resource="JournalArticle"/>
+    	<owl:disjointWith rdf:resource="JournalNews"/>
+    	<owl:disjointWith rdf:resource="NewspaperArticle"/>
+    	<owl:disjointWith rdf:resource="NewspaperNews"/>
+    	<owl:disjointWith rdf:resource="WebArticle"/>
+    	<owl:disjointWith rdf:resource="WebNews"/>
+    	<owl:disjointWith rdf:resource="WebComment"/>
+    	<owl:disjointWith rdf:resource="WebImage"/>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="isbn10"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="isbn13"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>   	
+	</owl:Class>
+	
+	<owl:Class rdf:about="Manuscript" rdfs:label="(citations) Manuscript">
+    	<rdfs:subClassOf rdf:resource="Citation"/>
+    	
+    	<owl:disjointWith rdf:resource="JournalComment"/>
+    	<owl:disjointWith rdf:resource="JournalArticle"/>
+    	<owl:disjointWith rdf:resource="JournalNews"/>
+    	<owl:disjointWith rdf:resource="NewspaperArticle"/>
+    	<owl:disjointWith rdf:resource="NewspaperNews"/>
+    	<owl:disjointWith rdf:resource="WebArticle"/>
+    	<owl:disjointWith rdf:resource="WebNews"/>
+    	<owl:disjointWith rdf:resource="WebComment"/>
+    	<owl:disjointWith rdf:resource="WebImage"/>
+		<owl:disjointWith rdf:resource="Book"/>
+		<owl:disjointWith rdf:resource="BookChapter"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="BookChapter" rdfs:label="(citations) Book Chapter">
+    	<rdfs:subClassOf rdf:resource="Citation"/>
+    	
+    	<owl:disjointWith rdf:resource="JournalComment"/>
+    	<owl:disjointWith rdf:resource="JournalArticle"/>
+    	<owl:disjointWith rdf:resource="JournalNews"/>
+    	<owl:disjointWith rdf:resource="NewspaperArticle"/>
+    	<owl:disjointWith rdf:resource="NewspaperNews"/>
+    	<owl:disjointWith rdf:resource="WebArticle"/>
+    	<owl:disjointWith rdf:resource="WebNews"/>
+    	<owl:disjointWith rdf:resource="WebComment"/>
+    	<owl:disjointWith rdf:resource="WebImage"/>
+    	<owl:disjointWith rdf:resource="Book"/>
+	</owl:Class>
+
+	
+	<owl:Class rdf:about="JournalComment" rdfs:label="(citations) Journal Comment">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="Citation"/>
+    	
+    	<owl:disjointWith rdf:resource="JournalArticle"/>
+    	<owl:disjointWith rdf:resource="JournalNews"/>
+    	<owl:disjointWith rdf:resource="NewspaperArticle"/>
+    	<owl:disjointWith rdf:resource="NewspaperNews"/>
+    	<owl:disjointWith rdf:resource="WebArticle"/>
+    	<owl:disjointWith rdf:resource="WebNews"/>
+    	<owl:disjointWith rdf:resource="WebComment"/>
+    	<owl:disjointWith rdf:resource="WebImage"/>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="contributionPublicationEnvironment"/>			  	<owl:someValuesFrom rdf:resource="Journal"/>			</owl:Restriction>
+		</rdfs:subClassOf>     	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="volume"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="issue"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="pagination"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="issn"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="doi"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>    	
+	</owl:Class>
+	
+	<owl:Class rdf:about="JournalArticle" rdfs:label="(citations) Journal Article">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="Citation"/>
+    	
+    	<owl:disjointWith rdf:resource="JournalComment"/>
+    	<owl:disjointWith rdf:resource="JournalNews"/>
+    	<owl:disjointWith rdf:resource="NewspaperArticle"/>
+    	<owl:disjointWith rdf:resource="NewspaperNews"/>
+    	<owl:disjointWith rdf:resource="WebArticle"/>
+    	<owl:disjointWith rdf:resource="WebNews"/>
+    	<owl:disjointWith rdf:resource="WebComment"/>
+    	<owl:disjointWith rdf:resource="WebImage"/>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="contributionPublicationEnvironment"/>			  	<owl:someValuesFrom rdf:resource="Journal"/>			</owl:Restriction>
+		</rdfs:subClassOf>          	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="volume"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="issue"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="pagination"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="issn"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="doi"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="JournalNews" rdfs:label="(citations) Journal News">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="Citation"/>
+    	
+    	<owl:disjointWith rdf:resource="JournalComment"/>
+    	<owl:disjointWith rdf:resource="JournalArticle"/>
+    	<owl:disjointWith rdf:resource="NewspaperArticle"/>
+    	<owl:disjointWith rdf:resource="NewspaperNews"/>
+    	<owl:disjointWith rdf:resource="WebArticle"/>
+    	<owl:disjointWith rdf:resource="WebNews"/>
+    	<owl:disjointWith rdf:resource="WebComment"/>
+    	<owl:disjointWith rdf:resource="WebImage"/>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="contributionPublicationEnvironment"/>			  	<owl:someValuesFrom rdf:resource="Journal"/>			</owl:Restriction>
+		</rdfs:subClassOf>         	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="volume"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="issue"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="pagination"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="issn"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="doi"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="NewspaperNews" rdfs:label="(citations) Newspaper News">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="Citation"/>
+    	
+    	<owl:disjointWith rdf:resource="JournalComment"/>
+    	<owl:disjointWith rdf:resource="JournalNews"/>
+    	<owl:disjointWith rdf:resource="JournalArticle"/>
+    	<owl:disjointWith rdf:resource="NewspaperArticle"/>
+    	<owl:disjointWith rdf:resource="WebArticle"/>
+    	<owl:disjointWith rdf:resource="WebNews"/>
+    	<owl:disjointWith rdf:resource="WebComment"/>
+    	<owl:disjointWith rdf:resource="WebImage"/>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="contributionPublicationEnvironment"/>			  	<owl:someValuesFrom rdf:resource="Newspaper"/>			</owl:Restriction>
+		</rdfs:subClassOf>            	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="volume"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="issue"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="pagination"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="issn"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="doi"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="NewspaperArticle" rdfs:label="(citations) Newspaper Article">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="Citation"/>
+    	
+    	<owl:disjointWith rdf:resource="JournalComment"/>
+    	<owl:disjointWith rdf:resource="JournalNews"/>
+    	<owl:disjointWith rdf:resource="JournalArticle"/>
+    	<owl:disjointWith rdf:resource="NewspaperNews"/>
+    	<owl:disjointWith rdf:resource="WebArticle"/>
+    	<owl:disjointWith rdf:resource="WebNews"/>
+    	<owl:disjointWith rdf:resource="WebComment"/>
+    	<owl:disjointWith rdf:resource="WebImage"/>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="contributionPublicationEnvironment"/>			  	<owl:someValuesFrom rdf:resource="Newspaper"/>			</owl:Restriction>
+		</rdfs:subClassOf>   	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="volume"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="issue"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="pagination"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="issn"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="doi"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="WebComment" rdfs:label="(citations) Web Comment">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="Citation"/>
+    	
+    	<owl:disjointWith rdf:resource="JournalComment"/>
+    	<owl:disjointWith rdf:resource="JournalArticle"/>
+    	<owl:disjointWith rdf:resource="JournalNews"/>
+    	<owl:disjointWith rdf:resource="NewspaperArticle"/>
+    	<owl:disjointWith rdf:resource="NewspaperNews"/>
+    	<owl:disjointWith rdf:resource="WebArticle"/>
+    	<owl:disjointWith rdf:resource="WebNews"/>
+    	<owl:disjointWith rdf:resource="WebImage"/>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="contributionPublicationEnvironment"/>			  	<owl:someValuesFrom rdf:resource="Website"/>			</owl:Restriction>
+		</rdfs:subClassOf> 
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;sourceAccessedOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;sourceLastAccessedOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="WebArticle" rdfs:label="(citations) Web Article">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="Citation"/>
+    	
+    	<owl:disjointWith rdf:resource="JournalArticle"/>
+    	<owl:disjointWith rdf:resource="JournalComment"/>
+    	<owl:disjointWith rdf:resource="JournalNews"/>
+    	<owl:disjointWith rdf:resource="NewspaperArticle"/>
+    	<owl:disjointWith rdf:resource="NewspaperNews"/>
+    	<owl:disjointWith rdf:resource="WebNews"/>
+    	<owl:disjointWith rdf:resource="WebComment"/>
+    	<owl:disjointWith rdf:resource="WebImage"/>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="contributionPublicationEnvironment"/>			  	<owl:someValuesFrom rdf:resource="Website"/>			</owl:Restriction>
+		</rdfs:subClassOf> 
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;sourceAccessedOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;sourceLastAccessedOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="WebNews" rdfs:label="(citations) Web News">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="Citation"/>
+    	
+    	<owl:disjointWith rdf:resource="JournalArticle"/>
+    	<owl:disjointWith rdf:resource="JournalComment"/>
+    	<owl:disjointWith rdf:resource="JournalNews"/>
+    	<owl:disjointWith rdf:resource="NewspaperArticle"/>
+    	<owl:disjointWith rdf:resource="NewspaperNews"/>
+    	<owl:disjointWith rdf:resource="WebArticle"/>
+    	<owl:disjointWith rdf:resource="WebComment"/>
+    	<owl:disjointWith rdf:resource="WebImage"/>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="contributionPublicationEnvironment"/>			  	<owl:someValuesFrom rdf:resource="Website"/>			</owl:Restriction>
+		</rdfs:subClassOf>     	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;sourceAccessedOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;sourceLastAccessedOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="WebImage" rdfs:label="(citations) Web Image">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="Citation"/>
+    	
+    	<owl:disjointWith rdf:resource="JournalArticle"/>
+    	<owl:disjointWith rdf:resource="JournalComment"/>
+    	<owl:disjointWith rdf:resource="JournalNews"/>
+    	<owl:disjointWith rdf:resource="NewspaperArticle"/>
+    	<owl:disjointWith rdf:resource="NewspaperNews"/>
+    	<owl:disjointWith rdf:resource="WebArticle"/>
+    	<owl:disjointWith rdf:resource="WebComment"/>
+    	<owl:disjointWith rdf:resource="WebNews"/>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="contributionPublicationEnvironment"/>			  	<owl:someValuesFrom rdf:resource="Website"/>			</owl:Restriction>
+		</rdfs:subClassOf>     	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;sourceAccessedOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;sourceLastAccessedOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="Publisher" rdfs:label="(citations) Publisher">
+    	<rdfs:subClassOf rdf:resource="&foaf;Organization"/>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&foaf;name"/>
+             	</owl:onProperty>			  	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&agents;place"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="PublicationEnvironment" rdfs:label="(citations) Publication Environment">
+    	<owl:disjointWith rdf:resource="Citation"/>
+    	
+    	<owl:disjointWith rdf:resource="&foaf;Document"/>
+    	<owl:disjointWith rdf:resource="&foaf;Agent"/>
+    	<owl:disjointWith rdf:resource="&foaf;Project"/>
+    	<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+	</owl:Class>
+
+	
+	<owl:Class rdf:about="Journal" rdfs:label="(citations) Journal">
+    	<rdfs:subClassOf rdf:resource="PublicationEnvironment"/>
+    	<owl:disjointWith rdf:resource="Newspaper"/>
+    	<owl:disjointWith rdf:resource="Magazine"/>
+    	<owl:disjointWith rdf:resource="BookEnvironment"/>
+    	<owl:disjointWith rdf:resource="Website"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="Newspaper" rdfs:label="(citations) Newspaper">
+    	<rdfs:subClassOf rdf:resource="PublicationEnvironment"/>
+    	<owl:disjointWith rdf:resource="Journal"/>
+    	<owl:disjointWith rdf:resource="Magazine"/>
+    	<owl:disjointWith rdf:resource="BookEnvironment"/>
+    	<owl:disjointWith rdf:resource="Website"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="Magazine" rdfs:label="(citations) Magazine">
+    	<rdfs:subClassOf rdf:resource="PublicationEnvironment"/>
+    	<owl:disjointWith rdf:resource="Journal"/>
+    	<owl:disjointWith rdf:resource="Newspaper"/>
+    	<owl:disjointWith rdf:resource="BookEnvironment"/>
+    	<owl:disjointWith rdf:resource="Website"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="BookEnvironment" rdfs:label="(citations) Book">
+    	<rdfs:subClassOf rdf:resource="PublicationEnvironment"/>
+    	<owl:disjointWith rdf:resource="Journal"/>
+    	<owl:disjointWith rdf:resource="Newspaper"/>
+    	<owl:disjointWith rdf:resource="Magazine"/>
+    	<owl:disjointWith rdf:resource="Website"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="Proceedings" rdfs:label="(citations) Proceedings">
+    	<rdfs:subClassOf rdf:resource="BookEnvironment"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="Website" rdfs:label="(citations) Website">
+    	<rdfs:subClassOf rdf:resource="PublicationEnvironment"/>
+    	<owl:disjointWith rdf:resource="Journal"/>
+    	<owl:disjointWith rdf:resource="Newspaper"/>
+    	<owl:disjointWith rdf:resource="Magazine"/>
+    	<owl:disjointWith rdf:resource="BookEnvironment"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="Webservice" rdfs:label="(citations) Webservice">
+    	<rdfs:subClassOf rdf:resource="PublicationEnvironment"/>
+    	<owl:disjointWith rdf:resource="Website"/>
+    	<owl:disjointWith rdf:resource="Journal"/>
+    	<owl:disjointWith rdf:resource="Newspaper"/>
+    	<owl:disjointWith rdf:resource="Magazine"/>
+    	<owl:disjointWith rdf:resource="BookEnvironment"/>
+	</owl:Class>
+		
+	<!-- pav fixes -->
+	<owl:ObjectProperty rdf:about="&pav;importedBy">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="Citation"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="&pav;importedFromSource">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="Citation"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="&pav;lastUpdateBy">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="Citation"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="&pav;createdBy">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="Citation"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="&pav;publishedBy">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="Citation"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="Citation"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="&pav;acceptedOn">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="Citation"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    <!--
+	<owl:DatatypeProperty rdf:about="&pav;submittedOn">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="Citation"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    -->
+    <owl:ObjectProperty rdf:about="&pav;submittedBy">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="Citation"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="&pav;publishedOn">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="Citation"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="&pav;contributedBy">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="Citation"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="&pav;contributors">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="Citation"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+    <!-- foaf fixes -->
+	<owl:ObjectProperty rdf:about="&foaf;fundedBy">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="Citation"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="Citation"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="&foaf;mbox">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">		    				<owl:Class rdf:about="Citation"/>
+		    				<owl:Class rdf:about="Publisher"/>   
+		    			</owl:unionOf>	
+				    </owl:Class>	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="&foaf;phone">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="Citation"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="&foaf;depicts">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="Citation"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>   
+</rdf:RDF>

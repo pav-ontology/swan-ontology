@@ -1,0 +1,1247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Created by Paolo Ciccarese http://www.hcklab.org/people/pc/ on December 10th, 2008 -->
+
+<!DOCTYPE rdf:RDF [
+    <!-- Other namespaces -->
+    <!ENTITY xsd  "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdf  "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY owl  "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc   "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY skos "http://www.w3.org/2008/05/skos#" >
+ 
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/">
+    <!ENTITY pav "http://swan.mindinformatics.org/ontologies/1.2/pav/">
+  	<!ENTITY collections "http://swan.mindinformatics.org/ontologies/1.2/collections/">
+  	<!ENTITY reification "http://swan.mindinformatics.org/ontologies/1.2/reification/">
+  	<!ENTITY agents "http://swan.mindinformatics.org/ontologies/1.2/agents/">
+  	<!ENTITY citations "http://swan.mindinformatics.org/ontologies/1.2/citations/">
+  	<!ENTITY lses "http://swan.mindinformatics.org/ontologies/1.2/lses/">
+  	<!ENTITY qualifiers "http://swan.mindinformatics.org/ontologies/1.2/qualifiers/">
+  	<!ENTITY discourserelationships "http://swan.mindinformatics.org/ontologies/1.2/discourse-relationships/">
+    <!ENTITY discourseelements "http://swan.mindinformatics.org/ontologies/1.2/discourse-elements/" >
+    <!ENTITY rsqualifiers "http://swan.mindinformatics.org/ontologies/1.2/rsqualifiers/">
+    
+    <!-- Main namespace -->
+    <!ENTITY swancommons "http://swan.mindinformatics.org/ontologies/1.2/swan-commons/" >
+    
+    <!-- Files -->
+  	<!ENTITY local "file:///Users/paolociccarese/Websites/Mindinformatics/ontologies/1.2/swan.owl">
+  	<!ENTITY path "http://swan.mindinformatics.org/ontologies/1.2/swan.owl">
+  	<!ENTITY file "&path;">  
+  	
+  	<!-- Previous file -->
+  	<!ENTITY previous-path "http://swan.mindinformatics.org/ontologies/1.1/swan.discourseelements.owl">
+  	
+  	<!-- Imported files -->
+  	<!ENTITY qualifiers-local "file:///Users/paolociccarese/Websites/Mindinformatics/ontologies/1.2/qualifiers.owl">
+    <!ENTITY discourseelements-local "file:///Users/paolociccarese/Websites/Mindinformatics/ontologies/1.2/discourseelements.owl">
+    <!ENTITY de-ext-rs-qualifiers-local "file:///Users/paolociccarese/Websites/Mindinformatics/ontologies/1.2/de-ext-rs-qualifiers.owl">
+    <!ENTITY lses-ext-gene-ontology-local "file:///Users/paolociccarese/Websites/Mindinformatics/ontologies/1.2/lses-ext-gene-ontology.owl">
+    <!ENTITY citations-local "file:///Users/paolociccarese/Websites/Mindinformatics/ontologies/1.2/citations.owl">
+    <!ENTITY lses-local "file:///Users/paolociccarese/Websites/Mindinformatics/ontologies/1.2/lses.owl">
+    
+    <!ENTITY qualifiers-path "http://swan.mindinformatics.org/ontologies/1.2/qualifiers.owl">
+    <!ENTITY discourseelements-path "http://swan.mindinformatics.org/ontologies/1.2/discourseelements.owl">
+    <!ENTITY de-ext-rs-qualifiers-path "http://swan.mindinformatics.org/ontologies/1.2/de-ext-rs-qualifiers.owl">
+	<!ENTITY lses-ext-gene-ontology-path "http://swan.mindinformatics.org/ontologies/1.2/lses-ext-gene-ontology.owl">
+	<!ENTITY citations-path "http://swan.mindinformatics.org/ontologies/1.2/citations.owl">
+	<!ENTITY lses-path "http://swan.mindinformatics.org/ontologies/1.2/lses.owl">
+    
+    <!ENTITY qualifiers-file "&qualifiers-path;">
+  	<!ENTITY discourseelements-file "&discourseelements-path;">
+    <!ENTITY de-ext-rs-qualifiers-file "&de-ext-rs-qualifiers-path;">
+  	<!ENTITY lses-file "&lses-path;">
+  	<!ENTITY lses-ext-gene-ontology-file "&lses-ext-gene-ontology-path;">
+  	<!ENTITY citations-file "&citations-path;">
+]>
+
+<rdf:RDF
+	xml:base="&swancommons;"
+	xmlns:discourseelements="&discourseelements;"
+	xmlns:agents="&agents;"
+	xmlns:collections="&collections;"
+	xmlns:lses="&lses;"
+	xmlns:citations="&citations;"
+	xmlns:qualifiers="&qualifiers;"
+    xmlns:rdfs="&rdfs;"
+    xmlns:owl="&owl;"
+    xmlns:rdf="&rdf;"
+    xmlns:xsd="&xsd;"
+    xmlns:dc="&dc;"
+    xmlns:foaf="&foaf;"
+    xmlns:discourserelationships="&discourserelationships;" >
+    
+    <owl:Ontology rdf:about="&file;">
+		<rdf:type rdf:resource="&owl;Ontology"/>
+		<rdfs:label rdf:datatype="&xsd;string">Discourse Elements v. 1.2</rdfs:label>
+
+    	<owl:imports rdf:resource="&discourseelements-file;"/>
+    	<owl:imports rdf:resource="&de-ext-rs-qualifiers-file;"/>
+    	<owl:imports rdf:resource="&citations-file;"/>
+    	<owl:imports rdf:resource="&qualifiers-file;"/>
+    	<owl:imports rdf:resource="&lses-file;"/>
+    	<owl:imports rdf:resource="&lses-ext-gene-ontology-file;"/>
+    	
+    	<dc:language>en</dc:language>
+    	<dc:title xml:lang="en">Discourse Elements ontology</dc:title>
+    	<dc:creator rdf:resource="http://www.hcklab.org/people/paolo-ciccarese/" />
+    	<dc:contributor rdf:datatype="&xsd;string">Paolo Ciccarese</dc:contributor>
+        <dc:contributor>Elizabeth Wu</dc:contributor>
+        <dc:contributor>June Kinoshita</dc:contributor>
+        <dc:contributor>Gwen Wong</dc:contributor>
+        <dc:contributor>Tim Clark</dc:contributor>    	
+        <dc:contributor>Marco Ocana</dc:contributor>    	
+    	<dc:publisher rdf:datatype="&xsd;string">http://swan.mindinformatics.org</dc:publisher>
+        <dc:date rdf:datatype="&xsd;string">September 12, 2009</dc:date>
+        <dc:format rdf:datatype="&xsd;string">rdf/xml</dc:format>       
+    </owl:Ontology> 
+    
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+     
+  	<rdf:Description rdf:about="&dc;title">
+  	  	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;date">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+ 	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;creator">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;format">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;language">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;publisher">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;contributor">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>      
+    
+    <!-- SKOS -->
+    <rdf:Description rdf:about="&qualifiers;Qualifier">
+		<rdfs:label>Qualifier</rdfs:label>
+		<rdf:type rdf:resource="&owl;Class"/>
+		<owl:disjointWith rdf:resource="&qualifiers;Meaning"/>
+		<owl:disjointWith rdf:resource="&discourseelements;DiscourseElement"/>		
+		<owl:disjointWith rdf:resource="&lses;Lse"/>
+		<owl:disjointWith rdf:resource="&lses;LseRecord"/>
+		<owl:disjointWith rdf:resource="&citations;Citation"/>
+		<owl:disjointWith rdf:resource="&citations;Expression"/>
+		<owl:disjointWith rdf:resource="&collections;Item"/>
+		<owl:disjointWith rdf:resource="&collections;Collection"/>
+		<owl:disjointWith rdf:resource="&foaf;Agent"/>
+		<owl:disjointWith rdf:resource="&foaf;Project"/>
+		<owl:disjointWith rdf:resource="&foaf;Document"/>
+		<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+		<owl:disjointWith rdf:resource="&agents;PersonName"/>
+	</rdf:Description>
+	
+	 <rdf:Description rdf:about="&qualifiers;Meaning">
+		<rdfs:label>Qualifier</rdfs:label>
+		<rdf:type rdf:resource="&owl;Class"/>
+		<owl:disjointWith rdf:resource="&discourseelements;DiscourseElement"/>		
+		<owl:disjointWith rdf:resource="&lses;Lse"/>
+		<owl:disjointWith rdf:resource="&lses;LseRecord"/>
+		<owl:disjointWith rdf:resource="&citations;Citation"/>
+		<owl:disjointWith rdf:resource="&citations;Expression"/>
+		<owl:disjointWith rdf:resource="&collections;Item"/>
+		<owl:disjointWith rdf:resource="&collections;Collection"/>
+		<owl:disjointWith rdf:resource="&foaf;Agent"/>
+		<owl:disjointWith rdf:resource="&foaf;Project"/>
+		<owl:disjointWith rdf:resource="&foaf;Document"/>
+		<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+		<owl:disjointWith rdf:resource="&agents;PersonName"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&skos;Concept">
+		<rdfs:label>skos:ConceptScheme</rdfs:label>
+		<rdf:type rdf:resource="&owl;Class"/>
+		<owl:disjointWith rdf:resource="&qualifiers;Meaning"/>
+		<owl:disjointWith rdf:resource="&discourseelements;DiscourseElement"/>
+		<owl:disjointWith rdf:resource="&lses;Lse"/>
+		<owl:disjointWith rdf:resource="&lses;LseRecord"/>
+		<owl:disjointWith rdf:resource="&citations;Citation"/>
+		<owl:disjointWith rdf:resource="&citations;Expression"/>
+		<owl:disjointWith rdf:resource="&citations;PublicationEnvironment"/>
+		<owl:disjointWith rdf:resource="&collections;Item"/>
+		<owl:disjointWith rdf:resource="&collections;Collection"/>
+		<owl:disjointWith rdf:resource="&foaf;Agent"/>
+		<owl:disjointWith rdf:resource="&foaf;Project"/>
+		<owl:disjointWith rdf:resource="&foaf;Document"/>
+		<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+		<owl:disjointWith rdf:resource="&agents;PersonName"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&skos;ConceptScheme">
+		<rdfs:label>skos:ConceptScheme</rdfs:label>
+		<rdf:type rdf:resource="&owl;Class"/>
+		<owl:disjointWith rdf:resource="&qualifiers;Qualifier"/>
+		<owl:disjointWith rdf:resource="&qualifiers;Meaning"/>
+		<owl:disjointWith rdf:resource="&discourseelements;DiscourseElement"/>
+		<owl:disjointWith rdf:resource="&lses;Lse"/>
+		<owl:disjointWith rdf:resource="&lses;LseRecord"/>
+		<owl:disjointWith rdf:resource="&citations;Citation"/>
+		<owl:disjointWith rdf:resource="&citations;Expression"/>
+		<owl:disjointWith rdf:resource="&citations;PublicationEnvironment"/>
+		<owl:disjointWith rdf:resource="&collections;Item"/>
+		<owl:disjointWith rdf:resource="&collections;Collection"/>
+		<owl:disjointWith rdf:resource="&foaf;Agent"/>
+		<owl:disjointWith rdf:resource="&foaf;Project"/>
+		<owl:disjointWith rdf:resource="&foaf;Document"/>
+		<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+		<owl:disjointWith rdf:resource="&agents;PersonName"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&skos;Collection">
+		<rdfs:label>skos:Collection</rdfs:label>
+		<rdf:type rdf:resource="&owl;Class"/>
+		<owl:disjointWith rdf:resource="&qualifiers;Qualifier"/>
+		<owl:disjointWith rdf:resource="&qualifiers;Meaning"/>
+		<owl:disjointWith rdf:resource="&discourseelements;DiscourseElement"/>
+		<owl:disjointWith rdf:resource="&lses;Lse"/>
+		<owl:disjointWith rdf:resource="&lses;LseRecord"/>
+		<owl:disjointWith rdf:resource="&citations;Citation"/>
+		<owl:disjointWith rdf:resource="&citations;Expression"/>
+		<owl:disjointWith rdf:resource="&citations;PublicationEnvironment"/>
+		<owl:disjointWith rdf:resource="&collections;Item"/>
+		<owl:disjointWith rdf:resource="&collections;Collection"/>
+		<owl:disjointWith rdf:resource="&foaf;Agent"/>
+		<owl:disjointWith rdf:resource="&foaf;Project"/>
+		<owl:disjointWith rdf:resource="&foaf;Document"/>
+		<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+		<owl:disjointWith rdf:resource="&agents;PersonName"/>
+	</rdf:Description>
+	
+
+    <owl:Class rdf:about="&discourseelements;DiscourseElement">
+    	<owl:disjointWith rdf:resource="&lses;Lse"/>
+    	<owl:disjointWith rdf:resource="&lses;LseRecord"/>
+    	<owl:disjointWith rdf:resource="&lses;LseRecord"/>
+    	<owl:disjointWith rdf:resource="&qualifiers;Qualifier"/>
+    	<owl:disjointWith rdf:resource="&qualifiers;Meaning"/>
+    	<owl:disjointWith rdf:resource="&skos;Concept"/>
+    	<owl:disjointWith rdf:resource="&skos;Collection"/>
+    	<owl:disjointWith rdf:resource="&skos;ConceptScheme"/>
+	</owl:Class> 
+	
+	<owl:Class rdf:about="&reification;Relationship">
+    	<owl:disjointWith rdf:resource="&lses;Lse"/>
+    	<owl:disjointWith rdf:resource="&lses;LseRecord"/>
+	</owl:Class>
+	
+	
+	<owl:Class rdf:about="&citations;Citation">
+		<owl:disjointWith rdf:resource="&reification;Relationship"/>
+    	<owl:disjointWith rdf:resource="&agents;PersonName"/>
+    	<owl:disjointWith rdf:resource="&foaf;Document"/>
+    	<owl:disjointWith rdf:resource="&foaf;Project"/>
+    	<owl:disjointWith rdf:resource="&foaf;Agent"/>
+    	<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+    	<owl:disjointWith rdf:resource="&collections;Collection"/>
+    	<owl:disjointWith rdf:resource="&collections;Item"/>
+    	<owl:disjointWith rdf:resource="&lses;Lse"/>
+    	<owl:disjointWith rdf:resource="&lses;LseRecord"/>
+    	<owl:disjointWith rdf:resource="&qualifiers;Qualifier"/>
+    	<owl:disjointWith rdf:resource="&qualifiers;Meaning"/>
+    	<owl:disjointWith rdf:resource="&discourseelements;DiscourseElement"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&citations;PublicationEnvironment">
+		<owl:disjointWith rdf:resource="&reification;Relationship"/>
+    	<owl:disjointWith rdf:resource="&agents;PersonName"/>
+    	<owl:disjointWith rdf:resource="&foaf;Document"/>
+    	<owl:disjointWith rdf:resource="&foaf;Project"/>
+    	<owl:disjointWith rdf:resource="&foaf;Agent"/>
+    	<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+    	<owl:disjointWith rdf:resource="&collections;Collection"/>
+    	<owl:disjointWith rdf:resource="&collections;Item"/>
+    	<owl:disjointWith rdf:resource="&lses;Lse"/>
+    	<owl:disjointWith rdf:resource="&lses;LseRecord"/>
+    	<owl:disjointWith rdf:resource="&qualifiers;Qualifier"/>
+    	<owl:disjointWith rdf:resource="&qualifiers;Meaning"/>
+    	<owl:disjointWith rdf:resource="&discourseelements;DiscourseElement"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&citations;Expression">
+		<owl:disjointWith rdf:resource="&reification;Relationship"/>
+    	<owl:disjointWith rdf:resource="&agents;PersonName"/>
+    	<owl:disjointWith rdf:resource="&foaf;Document"/>
+    	<owl:disjointWith rdf:resource="&foaf;Project"/>
+    	<owl:disjointWith rdf:resource="&foaf;Agent"/>
+    	<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+    	<owl:disjointWith rdf:resource="&collections;Collection"/>
+    	<owl:disjointWith rdf:resource="&collections;Item"/>
+    	<owl:disjointWith rdf:resource="&lses;Lse"/>
+    	<owl:disjointWith rdf:resource="&lses;LseRecord"/>
+    	<owl:disjointWith rdf:resource="&qualifiers;Qualifier"/>
+    	<owl:disjointWith rdf:resource="&qualifiers;Meaning"/>
+    	<owl:disjointWith rdf:resource="&discourseelements;DiscourseElement"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="&lses;Lse">
+    	<owl:disjointWith rdf:resource="&agents;PersonName"/>
+    	<owl:disjointWith rdf:resource="&foaf;Document"/>
+    	<owl:disjointWith rdf:resource="&foaf;Project"/>
+    	<owl:disjointWith rdf:resource="&foaf;Agent"/>
+    	<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+    	<owl:disjointWith rdf:resource="&collections;Collection"/>
+    	<owl:disjointWith rdf:resource="&collections;Item"/>	</owl:Class> 
+	
+	<owl:Class rdf:about="&lses;LseRecord">
+    	<owl:disjointWith rdf:resource="&agents;PersonName"/>
+    	<owl:disjointWith rdf:resource="&foaf;Document"/>
+    	<owl:disjointWith rdf:resource="&foaf;Project"/>
+    	<owl:disjointWith rdf:resource="&foaf;Agent"/>
+    	<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+    	<owl:disjointWith rdf:resource="&collections;Collection"/>
+    	<owl:disjointWith rdf:resource="&collections;Item"/>	</owl:Class> 
+    
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+    <owl:ObjectProperty rdf:about="&qualifiers;qualifiedBy">
+    	<rdfs:subPropertyOf rdf:resource="&discourserelationships;relatedTo"/>
+    </owl:ObjectProperty>
+     
+  	<owl:ObjectProperty rdf:about="&swancommons;researchStatementQualifiedAs">
+  		<rdfs:subPropertyOf rdf:resource="&qualifiers;qualifiedBy"/>
+    	<rdfs:domain rdf:resource="&discourseelements;ResearchStatement"/>
+    	<rdfs:range rdf:resource="&rsqualifiers;ResearchStatementQualifierConcept"/>
+  	</owl:ObjectProperty>   
+  	
+	<owl:ObjectProperty rdf:about="&swancommons;citesAsDiscussesEvidence">
+		<rdfs:subPropertyOf rdf:resource="&discourserelationships;cites"/>
+    	<rdfs:domain rdf:resource="&discourseelements;DiscourseElement"/>
+    	<rdfs:range rdf:resource="&citations;Citation"/>
+  	</owl:ObjectProperty>
+  	
+  	<owl:ObjectProperty rdf:about="&swancommons;citesAsSupportingEvidence">
+  		<rdfs:subPropertyOf rdf:resource="&discourserelationships;cites"/>
+    	<rdfs:domain rdf:resource="&discourseelements;DiscourseElement"/>
+    	<rdfs:range rdf:resource="&citations;Citation"/>
+  	</owl:ObjectProperty>
+  	
+  	<owl:ObjectProperty rdf:about="&swancommons;citesAsRefutingEvidence">
+  		<rdfs:subPropertyOf rdf:resource="&discourserelationships;cites"/>
+    	<rdfs:domain rdf:resource="&discourseelements;DiscourseElement"/>
+    	<rdfs:range rdf:resource="&citations;Citation"/>
+  	</owl:ObjectProperty>
+  	
+  	<owl:ObjectProperty rdf:about="&swancommons;derivedFrom">
+    	<rdfs:domain rdf:resource="&discourseelements;DiscourseElement"/>
+    	<rdfs:range rdf:resource="&citations;Citation"/>
+  	</owl:ObjectProperty>
+  	
+  	<owl:ObjectProperty rdf:about="&swancommons;derivedFromList">
+    	<rdfs:domain rdf:resource="&discourseelements;DiscourseElement"/>
+    	<rdfs:range rdf:resource="&citations;CitationsList"/>
+  	</owl:ObjectProperty>  	
+  	
+  	<owl:ObjectProperty rdf:about="&discourserelationships;consistentWith">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				    		<owl:Class rdf:about="&qualifiers;Qualifier"/>
+				    		<owl:Class rdf:about="&skos;Concept"/>
+    						<owl:Class rdf:about="&skos;Collection"/>
+    						<owl:Class rdf:about="&skos;ConceptScheme"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection"> 
+				    		<owl:Class rdf:about="&qualifiers;Qualifier"/>
+				    		<owl:Class rdf:about="&skos;Concept"/>
+    						<owl:Class rdf:about="&skos;Collection"/>
+    						<owl:Class rdf:about="&skos;ConceptScheme"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+	<owl:ObjectProperty rdf:about="&discourserelationships;inconsistentWith">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection"> 
+				    		<owl:Class rdf:about="&qualifiers;Qualifier"/>
+				    		<owl:Class rdf:about="&skos;Concept"/>
+    						<owl:Class rdf:about="&skos;Collection"/>
+    						<owl:Class rdf:about="&skos;ConceptScheme"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection"> 
+				    		<owl:Class rdf:about="&qualifiers;Qualifier"/>
+				    		<owl:Class rdf:about="&skos;Concept"/>
+    						<owl:Class rdf:about="&skos;Collection"/>
+    						<owl:Class rdf:about="&skos;ConceptScheme"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+	<owl:ObjectProperty rdf:about="&discourserelationships;alternativeTo">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				    		<owl:Class rdf:about="&qualifiers;Qualifier"/>
+				    		<owl:Class rdf:about="&skos;Concept"/>
+    						<owl:Class rdf:about="&skos;Collection"/>
+    						<owl:Class rdf:about="&skos;ConceptScheme"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				    		<owl:Class rdf:about="&qualifiers;Qualifier"/>
+				    		<owl:Class rdf:about="&skos;Concept"/>
+    						<owl:Class rdf:about="&skos;Collection"/>
+    						<owl:Class rdf:about="&skos;ConceptScheme"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+	<owl:ObjectProperty rdf:about="&discourserelationships;relevantTo">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				    		<owl:Class rdf:about="&qualifiers;Qualifier"/>
+				    		<owl:Class rdf:about="&skos;Concept"/>
+    						<owl:Class rdf:about="&skos;Collection"/>
+    						<owl:Class rdf:about="&skos;ConceptScheme"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				    		<owl:Class rdf:about="&qualifiers;Qualifier"/> 
+				    		<owl:Class rdf:about="&skos;Concept"/>
+    						<owl:Class rdf:about="&skos;Collection"/>
+    						<owl:Class rdf:about="&skos;ConceptScheme"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+	<owl:ObjectProperty rdf:about="&discourserelationships;refersTo">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				    		<owl:Class rdf:about="&qualifiers;Qualifier"/> 
+				    		<owl:Class rdf:about="&skos;Concept"/>
+    						<owl:Class rdf:about="&skos;Collection"/>
+    						<owl:Class rdf:about="&skos;ConceptScheme"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				    		<owl:Class rdf:about="&qualifiers;Qualifier"/>
+				    		<owl:Class rdf:about="&skos;Concept"/>
+    						<owl:Class rdf:about="&skos;Collection"/>
+    						<owl:Class rdf:about="&skos;ConceptScheme"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+	<owl:ObjectProperty rdf:about="&discourserelationships;inResponseTo">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&qualifiers;Qualifier"/>
+			    			<owl:Class rdf:about="&skos;Concept"/>
+    						<owl:Class rdf:about="&skos;Collection"/>
+    						<owl:Class rdf:about="&skos;ConceptScheme"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&qualifiers;Qualifier"/>
+			    			<owl:Class rdf:about="&skos;Concept"/>
+    						<owl:Class rdf:about="&skos;Collection"/>
+    						<owl:Class rdf:about="&skos;ConceptScheme"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+<owl:ObjectProperty rdf:about="&discourserelationships;arousedFrom">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&qualifiers;Qualifier"/>
+			    			<owl:Class rdf:about="&skos;Concept"/>
+    						<owl:Class rdf:about="&skos;Collection"/>
+    						<owl:Class rdf:about="&skos;ConceptScheme"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				    		<owl:Class rdf:about="&qualifiers;Qualifier"/>
+				    		<owl:Class rdf:about="&skos;Concept"/>
+    						<owl:Class rdf:about="&skos;Collection"/>
+    						<owl:Class rdf:about="&skos;ConceptScheme"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="&discourserelationships;cites">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&qualifiers;Qualifier"/>
+			    			<owl:Class rdf:about="&skos;Concept"/>
+    						<owl:Class rdf:about="&skos;Collection"/>
+    						<owl:Class rdf:about="&skos;ConceptScheme"/>
+    						<owl:Class rdf:about="&citations;PublicationEnvironment"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="&discourserelationships;motivatedBy">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&qualifiers;Qualifier"/>
+			    			<owl:Class rdf:about="&skos;Concept"/>
+    						<owl:Class rdf:about="&skos;Collection"/>
+    						<owl:Class rdf:about="&skos;ConceptScheme"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&qualifiers;Qualifier"/>
+			    			<owl:Class rdf:about="&skos;Concept"/>
+    						<owl:Class rdf:about="&skos;Collection"/>
+    						<owl:Class rdf:about="&skos;ConceptScheme"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+  	
+  	<!-- Fixes relationships ontology and citations -->	
+  	<owl:ObjectProperty rdf:about="&lses;recordOf">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&citations;Citation"/>
+			    			<owl:Class rdf:about="&citations;PublicationEnvironment"/>
+			    			<owl:Class rdf:about="&foaf;Agent"/>
+			    			<owl:Class rdf:about="&foaf;Project"/>
+			    			<owl:Class rdf:about="&foaf;Document"/>
+			    			<owl:Class rdf:about="&foaf;OnlineAccount"/>
+			    			<owl:Class rdf:about="&agents;PersonName"/>
+			    			<owl:Class rdf:about="&qualifiers;Qualifier"/>
+			    			<owl:Class rdf:about="&collections;Collection"/>
+			    			<owl:Class rdf:about="&collections;Item"/>
+			    			<owl:Class rdf:about="&skos;Concept"/>
+			    			<owl:Class rdf:about="&skos;ConceptScheme"/>
+			    			<owl:Class rdf:about="&skos;Collection"/>
+			    			<owl:Class rdf:about="&reification;Relationship"/>
+			    			<owl:Class rdf:about="&discourseelements;DiscourseElement"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&citations;Citation"/>
+			    			<owl:Class rdf:about="&citations;PublicationEnvironment"/>
+			    			<owl:Class rdf:about="&foaf;Agent"/>
+			    			<owl:Class rdf:about="&foaf;Project"/>
+			    			<owl:Class rdf:about="&foaf;Document"/>
+			    			<owl:Class rdf:about="&foaf;OnlineAccount"/>
+			    			<owl:Class rdf:about="&agents;PersonName"/>
+			    			<owl:Class rdf:about="&qualifiers;Qualifier"/>
+			    			<owl:Class rdf:about="&collections;Collection"/>
+			    			<owl:Class rdf:about="&collections;Item"/>
+			    			<owl:Class rdf:about="&skos;Concept"/>
+			    			<owl:Class rdf:about="&skos;ConceptScheme"/>
+			    			<owl:Class rdf:about="&skos;Collection"/>
+			    			<owl:Class rdf:about="&reification;Relationship"/>
+			    			<owl:Class rdf:about="&discourseelements;DiscourseElement"/>						    	
+			    		</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty> 
+  	
+	<owl:ObjectProperty rdf:about="&discourserelationships;inResponseTo">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&citations;Citation"/>
+			    			<owl:Class rdf:about="&citations;PublicationEnvironment"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&citations;Citation"/>
+			    			<owl:Class rdf:about="&citations;PublicationEnvironment"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>  	
+  	
+	<owl:ObjectProperty rdf:about="&discourserelationships;arousedFrom">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&citations;Citation"/>
+			    			<owl:Class rdf:about="&citations;PublicationEnvironment"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&citations;Citation"/>
+			    			<owl:Class rdf:about="&citations;PublicationEnvironment"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>  
+    
+	<owl:ObjectProperty rdf:about="&discourserelationships;motivatedBy">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&citations;Citation"/>
+			    			<owl:Class rdf:about="&citations;PublicationEnvironment"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&citations;Citation"/>
+			    			<owl:Class rdf:about="&citations;PublicationEnvironment"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+	<owl:ObjectProperty rdf:about="&discourserelationships;consistentWith">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&citations;Citation"/>
+			    			<owl:Class rdf:about="&citations;PublicationEnvironment"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&citations;Citation"/>
+			    			<owl:Class rdf:about="&citations;PublicationEnvironment"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="&discourserelationships;inconsistentWith">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&citations;Citation"/>
+			    			<owl:Class rdf:about="&citations;PublicationEnvironment"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&citations;Citation"/>
+			    			<owl:Class rdf:about="&citations;PublicationEnvironment"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="&discourserelationships;relevantTo">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&citations;Citation"/>
+			    			<owl:Class rdf:about="&citations;PublicationEnvironment"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&citations;Citation"/>
+			    			<owl:Class rdf:about="&citations;PublicationEnvironment"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+	<owl:ObjectProperty rdf:about="&discourserelationships;alternativeTo">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&citations;Citation"/>
+			    			<owl:Class rdf:about="&citations;PublicationEnvironment"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&citations;Citation"/>
+			    			<owl:Class rdf:about="&citations;PublicationEnvironment"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+  	<!-- Fixes relationships ontology and lses -->
+  	<owl:ObjectProperty rdf:about="&discourserelationships;relatedTo">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&lses;Lse"/>
+			    			<owl:Class rdf:about="&lses;LseRecord"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty> 
+        	
+	<owl:ObjectProperty rdf:about="&discourserelationships;inResponseTo">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&lses;Lse"/>
+			    			<owl:Class rdf:about="&lses;LseRecord"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>  	
+  	
+	<owl:ObjectProperty rdf:about="&discourserelationships;arousedFrom">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&lses;Lse"/>
+			    			<owl:Class rdf:about="&lses;LseRecord"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>  
+    
+	<owl:ObjectProperty rdf:about="&discourserelationships;motivatedBy">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&lses;Lse"/>
+			    			<owl:Class rdf:about="&lses;LseRecord"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+	<owl:ObjectProperty rdf:about="&discourserelationships;consistentWith">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&lses;Lse"/>
+			    			<owl:Class rdf:about="&lses;LseRecord"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="&discourserelationships;inconsistentWith">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&lses;Lse"/>
+			    			<owl:Class rdf:about="&lses;LseRecord"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="&discourserelationships;relevantTo">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&lses;Lse"/>
+			    			<owl:Class rdf:about="&lses;LseRecord"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+	<owl:ObjectProperty rdf:about="&discourserelationships;alternativeTo">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&lses;Lse"/>
+			    			<owl:Class rdf:about="&lses;LseRecord"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+     <owl:ObjectProperty rdf:about="&foaf;phone">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="&qualifiers;Qualifier"/>
+				        	<owl:Class rdf:about="&skos;ConceptScheme"/>
+				        	<owl:Class rdf:about="&skos;Collection"/>
+				        	<owl:Class rdf:about="&skos;Concept"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="&foaf;currentProject">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				        	<owl:Class rdf:about="&qualifiers;Qualifier"/>
+				        </owl:unionOf>
+					</owl:Class>        			    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="&foaf;fundedBy">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				        	<owl:Class rdf:about="&qualifiers;Qualifier"/>
+				        	<owl:Class rdf:about="&skos;ConceptScheme"/>
+				        	<owl:Class rdf:about="&skos;Collection"/>
+				        	<owl:Class rdf:about="&skos;Concept"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>   
+    <owl:ObjectProperty rdf:about="&foaf;mbox">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				        	<owl:Class rdf:about="&qualifiers;Qualifier"/>
+				        	<owl:Class rdf:about="&skos;ConceptScheme"/>
+				        	<owl:Class rdf:about="&skos;Collection"/>
+				        	<owl:Class rdf:about="&skos;Concept"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="&pav;lastUpdateBy">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				        	<owl:Class rdf:about="&qualifiers;Qualifier"/>
+				        	<owl:Class rdf:about="&skos;ConceptScheme"/>
+				        	<owl:Class rdf:about="&skos;Collection"/>
+				        	<owl:Class rdf:about="&skos;Concept"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="&pav;createdBy">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				        	<owl:Class rdf:about="&qualifiers;Qualifier"/>
+				        	<owl:Class rdf:about="&skos;ConceptScheme"/>
+				        	<owl:Class rdf:about="&skos;Collection"/>
+				        	<owl:Class rdf:about="&skos;Concept"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="&pav;importedFromSource">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				        	<owl:Class rdf:about="&qualifiers;Qualifier"/>
+				        	<owl:Class rdf:about="&skos;ConceptScheme"/>
+				        	<owl:Class rdf:about="&skos;Collection"/>
+				        	<owl:Class rdf:about="&skos;Concept"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="&pav;publishedBy">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				        	<owl:Class rdf:about="&qualifiers;Qualifier"/>
+				        	<owl:Class rdf:about="&skos;ConceptScheme"/>
+				        	<owl:Class rdf:about="&skos;Collection"/>
+				        	<owl:Class rdf:about="&skos;Concept"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="&pav;submittedBy">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				        	<owl:Class rdf:about="&qualifiers;Qualifier"/>
+				        	<owl:Class rdf:about="&skos;ConceptScheme"/>
+				        	<owl:Class rdf:about="&skos;Collection"/>
+				        	<owl:Class rdf:about="&skos;Concept"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:about="&pav;sourceAccessedOn">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				        	<owl:Class rdf:about="&qualifiers;Qualifier"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="&pav;sourceLastAccessedOn">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				        	<owl:Class rdf:about="&qualifiers;Qualifier"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="&pav;sourceFirstAccessedOn">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				        	<owl:Class rdf:about="&qualifiers;Qualifier"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+    <owl:Class rdf:about="&qualifiers;Qualifier">
+		<owl:disjointWith rdf:resource="&collections;Item"/>
+		<owl:disjointWith rdf:resource="&collections;Collection"/>
+		<owl:disjointWith rdf:resource="&foaf;Agent"/>
+		<owl:disjointWith rdf:resource="&foaf;Project"/>
+		<owl:disjointWith rdf:resource="&foaf;Document"/>
+		<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+		<owl:disjointWith rdf:resource="&reification;Relationship"/>
+		<owl:disjointWith rdf:resource="&agents;PersonName"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&skos;Concept">
+		<owl:disjointWith rdf:resource="&collections;Item"/>
+		<owl:disjointWith rdf:resource="&collections;Collection"/>
+		<owl:disjointWith rdf:resource="&foaf;Agent"/>
+		<owl:disjointWith rdf:resource="&foaf;Project"/>
+		<owl:disjointWith rdf:resource="&foaf;Document"/>
+		<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+		<owl:disjointWith rdf:resource="&reification;Relationship"/>
+		<owl:disjointWith rdf:resource="&agents;PersonName"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&skos;Collection">
+		<owl:disjointWith rdf:resource="&collections;Item"/>
+		<owl:disjointWith rdf:resource="&collections;Collection"/>
+		<owl:disjointWith rdf:resource="&foaf;Agent"/>
+		<owl:disjointWith rdf:resource="&foaf;Project"/>
+		<owl:disjointWith rdf:resource="&foaf;Document"/>
+		<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+		<owl:disjointWith rdf:resource="&reification;Relationship"/>
+		<owl:disjointWith rdf:resource="&agents;PersonName"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&skos;ConceptScheme">
+		<owl:disjointWith rdf:resource="&collections;Item"/>
+		<owl:disjointWith rdf:resource="&collections;Collection"/>
+		<owl:disjointWith rdf:resource="&foaf;Agent"/>
+		<owl:disjointWith rdf:resource="&foaf;Project"/>
+		<owl:disjointWith rdf:resource="&foaf;Document"/>
+		<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+		<owl:disjointWith rdf:resource="&reification;Relationship"/>
+		<owl:disjointWith rdf:resource="&agents;PersonName"/>
+	</owl:Class>
+	
+	<foaf:Project rdf:about="http://swan.mindinformatics.org">
+    	<rdfs:label>The SWAN (Semantic Web Applications in Neuroscience) project</rdfs:label>
+    	<foaf:name>The SWAN (Semantic Web Applications in Neuroscience) project</foaf:name>
+    	<foaf:homepage rdf:resource="http://swan.mindinformatics.org/index.html"/>
+    	<foaf:logo rdf:resource="http://swan.mindinformatics.org/imgs/swan-logo4.jpg"/>
+    </foaf:Project>
+    
+    <foaf:Image rdf:about="http://swan.mindinformatics.org/imgs/swan-logo4.jpg"/>
+    <foaf:Document rdf:about="http://swan.mindinformatics.org/index.html"/>
+
+	<foaf:Group rdf:about="http://swan.mindinformatics.org/whoweare.html">
+    	<rdfs:label>The SWAN (Semantic Web Applications in Neuroscience) team</rdfs:label>
+    	<foaf:name>The SWAN (Semantic Web Applications in Neuroscience) team</foaf:name>
+    	<foaf:member>
+    		<foaf:Person rdf:about="http://www.hcklab.org/people/pc/">
+    			<rdfs:label>Paolo Ciccarese</rdfs:label>
+				<foaf:name>Paolo Ciccarese</foaf:name>
+			</foaf:Person>
+		</foaf:member>
+		<foaf:member>
+			<foaf:Person rdf:about="http://swan.mindinformatics.org/whoweare.html#clark">
+    			<rdfs:label>Tim Clark</rdfs:label>
+				<foaf:name>Tim Clark</foaf:name>
+			</foaf:Person>
+    	</foaf:member>
+    	<foaf:member>
+			<foaf:Person rdf:about="http://swan.mindinformatics.org/whoweare.html#kinoshita">
+    			<rdfs:label>June Kinoshita</rdfs:label>
+				<foaf:name>June Kinoshita</foaf:name>
+			</foaf:Person>
+    	</foaf:member>
+    	<foaf:member>
+			<foaf:Person rdf:about="http://swan.mindinformatics.org/whoweare.html#wu">
+    			<rdfs:label>Elizabeth Wu</rdfs:label>
+				<foaf:name>Elizabeth Wu</foaf:name>
+			</foaf:Person>
+    	</foaf:member>
+    	<foaf:member>
+			<foaf:Person rdf:about="http://swan.mindinformatics.org/whoweare.html#wong">
+    			<rdfs:label>Gwen Wong</rdfs:label>
+				<foaf:name>Gwen Wong</foaf:name>
+			</foaf:Person>
+    	</foaf:member>
+    	<foaf:member>
+			<foaf:Person rdf:about="http://swan.mindinformatics.org/whoweare.html#ocana">
+    			<rdfs:label>Marco Ocana</rdfs:label>
+				<foaf:name>Marco Ocana</foaf:name>
+			</foaf:Person>
+    	</foaf:member>
+    </foaf:Group>
+</rdf:RDF>

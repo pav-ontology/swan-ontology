@@ -1,0 +1,823 @@
+<?xml version="1.0"?>
+
+<!-- Created by Paolo Ciccarese http://www.hcklab.org/people/pc/ on October 21st, 2008 -->
+
+<!DOCTYPE rdf:RDF [
+    <!-- Other namespaces -->
+    <!ENTITY xsd  "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdf  "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY owl  "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc   "http://purl.org/dc/elements/1.1/" >
+ 
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/">
+    <!ENTITY pav "http://swan.mindinformatics.org/ontologies/1.2/pav/">
+  	<!ENTITY collections "http://swan.mindinformatics.org/ontologies/1.2/collections/">
+  	<!ENTITY agents "http://swan.mindinformatics.org/ontologies/1.2/agents/">
+    
+    <!-- Main namespace -->
+    <!ENTITY lses "http://swan.mindinformatics.org/ontologies/1.2/lses/" >
+    
+    <!-- Files -->
+  	<!ENTITY local "file:///Users/paolociccarese/Workspaces/SWANIII/swan/src/main/webapp/swanwebsite/ontologies/1.2/lses.owl">
+  	<!ENTITY path "http://swan.mindinformatics.org/ontologies/1.2/lses.owl">
+  	<!ENTITY file "&path;">  
+  	
+  	<!-- Previous file -->
+  	<!ENTITY previous-path "http://swan.mindinformatics.org/ontologies/1.1/lses.owl">
+]>
+
+<rdf:RDF
+	xml:base="&lses;"
+	xmlns:agents="&agents;"
+	xmlns:collections="&collections;"
+    xmlns:rdfs="&rdfs;"
+    xmlns:owl="&owl;"
+    xmlns:rdf="&rdf;"
+    xmlns:xsd="&xsd;"
+    xmlns:dc="&dc;"
+    xmlns:foaf="&foaf;" >
+    
+    <owl:Ontology rdf:about="&file;">
+    	<rdf:type rdf:resource="&owl;Ontology"/>
+		<rdfs:label rdf:datatype="&xsd;string">Lses v. 1.2</rdfs:label>
+
+    	<owl:priorVersion rdf:resource="&previous-path;"/>
+    	
+    	<dc:language>en</dc:language>
+    	<dc:title xml:lang="en">Life Science Entities ontology</dc:title>
+    	<dc:creator rdf:resource="http://www.hcklab.org/people/paolo-ciccarese/" />
+    	<dc:contributor rdf:datatype="&xsd;string">Paolo Ciccarese</dc:contributor>
+        <dc:contributor>Elizabeth Wu</dc:contributor>
+        <dc:contributor>Alan Ruttenberg</dc:contributor>
+        <dc:contributor>Tim Clark</dc:contributor>    	
+        <dc:contributor>Marco Ocana</dc:contributor>
+        <dc:contributor>Gwen Wong</dc:contributor>
+        <dc:contributor>Elizabeth Wu</dc:contributor>
+        <dc:contributor>June Kinoshita</dc:contributor>    	
+    	<dc:publisher rdf:datatype="&xsd;string">http://swan.mindinformatics.org</dc:publisher>
+        <dc:date rdf:datatype="&xsd;string">January 13, 2009</dc:date>
+        <dc:format rdf:datatype="&xsd;string">rdf/xml</dc:format>    
+    </owl:Ontology> 
+    
+  	<rdf:Description rdf:about="&previous-path;">
+    	<rdf:type rdf:resource="&owl;Ontology"/>
+  	</rdf:Description>   
+  	
+  	
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+     
+  	<rdf:Description rdf:about="&dc;title">
+  	  	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;date">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+ 	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;creator">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;format">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;language">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;publisher">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;contributor">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>  	 
+  	
+  	<!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+    <owl:ObjectProperty rdf:about="hasGeneVariant">
+  		<rdfs:comment rdf:datatype="&xsd;string">
+Gene variants include missense, deletion, etc. mutations that are heritable allelic variations of a wild type DNA sequence located at a single chromosomal locus (examples: APP, PS1, ApoE, tau).  Gene variants also include splice variant cDNAs of a single gene that encode different length proteins derived from the same DNA sequence (examples APP, tau). Gene variants also include homologues of genes, that are located at different chromosomal loci (examples include Aph-1a and Aph-1b, Notch 1,2, 3, 4). 
+  		</rdfs:comment>
+        <rdfs:domain>
+        	<rdfs:Class rdf:about="Gene"/>
+        </rdfs:domain>
+        <rdfs:range>
+         	<rdfs:Class rdf:about="Gene"/>
+        </rdfs:range>
+        <owl:inverseOf rdf:resource="geneVariantOf"/>
+    </owl:ObjectProperty> 
+    
+    <rdf:Description rdf:about="geneVariantOf">
+    	<rdf:type rdf:resource="&owl;ObjectProperty"/>
+  	</rdf:Description>
+    
+    <owl:ObjectProperty rdf:about="hasProteinVariant">
+  		<rdfs:comment rdf:datatype="&xsd;string">
+Protein variants include proteins translated from all various length mRNAs that are transcribed from a single gene.  This includes proteins that use alternative exon encoded sequences.  Proteins variants include all translated protein products from all splice variant mRNAs of a single gene (example: APP770, APP751, APP714, APP695). 
+  		</rdfs:comment>
+        <rdfs:domain>
+        	<rdfs:Class rdf:about="Protein"/>
+        </rdfs:domain>
+        <rdfs:range>
+         	<rdfs:Class rdf:about="Protein"/>
+        </rdfs:range>
+        <owl:inverseOf rdf:resource="proteinVariantOf"/>
+    </owl:ObjectProperty> 
+    
+   	<rdf:Description rdf:about="proteinVariantOf">
+    	<rdf:type rdf:resource="&owl;ObjectProperty"/>
+  	</rdf:Description>
+    
+    <owl:ObjectProperty rdf:about="nativeIn">
+        <rdfs:domain>
+        	<owl:Class>
+	    		<owl:unionOf rdf:parseType="Collection">
+	    			<rdfs:Class rdf:about="Gene"/>
+	    			<rdfs:Class rdf:about="Protein"/>
+	    		</owl:unionOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+         	<rdfs:Class rdf:about="Organism"/>
+        </rdfs:range>
+        <owl:inverseOf rdf:resource="hasNative"/>
+    </owl:ObjectProperty>
+    
+    <rdf:Description rdf:about="hasNative">
+    	<rdf:type rdf:resource="&owl;ObjectProperty"/>
+  	</rdf:Description>
+ 
+    <owl:ObjectProperty rdf:about="encodes">
+  		<rdfs:comment rdf:datatype="&xsd;string">
+Proteins translated from any mRNA transcribed from a single gene.  
+  		</rdfs:comment>
+        <rdfs:domain>
+        	<rdfs:Class rdf:about="Gene"/>
+        </rdfs:domain>
+        <rdfs:range>
+         	<rdfs:Class rdf:about="Protein"/>
+        </rdfs:range>
+        <owl:inverseOf rdf:resource="encodedBy"/>
+    </owl:ObjectProperty> 
+    
+    <rdf:Description rdf:about="encodedBy">
+    	<rdf:type rdf:resource="&owl;ObjectProperty"/>
+  	</rdf:Description>
+    
+    <owl:ObjectProperty rdf:about="partOf">
+  		<rdfs:comment rdf:datatype="&xsd;string">
+Multiprotein complexes are groups of two or more associated proteins formed by protein-protein interaction that is stable over time.  Example includes gamma secretase which is a stable complex formed by the association of Presenilin-1 or Presenilin-2 proteins associated with APH-1a or APH-1b proteins, with nicastrin and PEN-2 proteins.  A second example includes stable Abeta soluble complexes, fibrils, beta sheets.  
+  		</rdfs:comment>
+        <rdfs:domain>
+        	<rdfs:Class rdf:about="Protein"/>
+        </rdfs:domain>
+        <rdfs:range>
+         	<rdfs:Class rdf:about="MultiProteinComplex"/>
+        </rdfs:range>
+        <owl:inverseOf rdf:resource="hasPart"/>
+    </owl:ObjectProperty>  
+    
+    <rdf:Description rdf:about="hasPart">
+    	<rdf:type rdf:resource="&owl;ObjectProperty"/>
+  	</rdf:Description>
+    
+    <owl:ObjectProperty rdf:about="derivedFrom">
+  		<rdfs:comment rdf:datatype="&xsd;string">
+Proteins derived from proteins include all post-translationally modified versions of the same protein.  This includes Abeta peptide cleaved from APP, hyperphosphorylated tau, Notch intracellular domain cleaved from Notch. 
+  		</rdfs:comment>
+        <rdfs:domain>
+        	<rdfs:Class rdf:about="Protein"/>
+        </rdfs:domain>
+        <rdfs:range>
+         	<rdfs:Class rdf:about="Protein"/>
+        </rdfs:range>
+    </owl:ObjectProperty> 
+    
+    <owl:ObjectProperty rdf:about="hasOrtholog">
+  		<rdfs:comment rdf:datatype="&xsd;string">
+Gene orthologs are evolutionarily conserved homologous genes from disparate species.  Examples include human presenilin vs. C. elegans SEL-12, human notch vs. C. elegans LIN-12, human nicastrin vs. C. elegans APH-2. 
+  		</rdfs:comment>
+        <rdfs:domain>
+        	<rdfs:Class rdf:about="Gene"/>
+        </rdfs:domain>
+        <rdfs:range>
+         	<rdfs:Class rdf:about="Gene"/>
+        </rdfs:range>
+        <owl:inverseOf rdf:resource="orthologOf"/>
+    </owl:ObjectProperty> 
+    
+    <rdf:Description rdf:about="orthologOf">
+    	<rdf:type rdf:resource="&owl;ObjectProperty"/>
+  	</rdf:Description>
+        
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->  
+         
+	<owl:Class rdf:about="Lse" rdfs:label="(lses) Life Science Entity">
+  		<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:comment rdf:datatype="&xsd;string">
+    	</rdfs:comment>
+
+    	<!-- Software Provenance -->
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&pav;importedBy"/>
+             	</owl:onProperty>
+             	<owl:allValuesFrom rdf:resource="&agents;Software"/>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&pav;importedBy"/>
+             	</owl:onProperty>
+             	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;importedOn"/>
+             	</owl:onProperty>
+			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>	
+		
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;importedFirstOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+		
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;importedLastOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="&pav;importedFromSource"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+		
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;importedWithId"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+		
+		<!-- Human Provenance -->
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&pav;createdBy"/>
+             	</owl:onProperty>
+             	<owl:allValuesFrom rdf:resource="&agents;Person"/>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&pav;createdBy"/>
+             	</owl:onProperty>
+             	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;createdOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>    	    		</owl:Class>    
+    
+	<owl:Class rdf:about="&lses;Gene" rdfs:label="(lses) Gene">
+		<rdf:type rdf:resource="&owl;Class"/>
+		<rdfs:subClassOf rdf:resource="Lse"/>
+  		<rdfs:comment rdf:datatype="&xsd;string">
+  			Specific sequences of nucleotides along a molecule of DNA (or, in the case of some viruses, RNA) which represent functional units of heredity. Most eukaryotic genes contain a set of coding regions (exons) that are spliced together in the transcript, after removal of intervening sequence (introns) and are therefore labeled split genes. 
+  		</rdfs:comment>
+    	
+    	<owl:disjointWith rdf:resource="Protein"/>
+    	<owl:disjointWith rdf:resource="MultiProteinComplex"/>
+    	<owl:disjointWith rdf:resource="Organism"/>	</owl:Class> 
+	
+	<owl:Class rdf:about="Protein" rdfs:label="(lses) Protein">
+		<rdf:type rdf:resource="&owl;Class"/>
+		<rdfs:subClassOf rdf:resource="Lse"/>
+  		<rdfs:comment rdf:datatype="&xsd;string">
+  			Linear polypeptides that are synthesized on ribosomes and may be further modified, crosslinked, cleaved, or assembled into complex proteins with several subunits. The specific sequence of amino acids determines the shape the polypeptide will take, during protein folding, and the function of the protein. 
+  		</rdfs:comment>    	
+    	<owl:disjointWith rdf:resource="Gene"/>
+    	<owl:disjointWith rdf:resource="MultiProteinComplex"/>
+    	<owl:disjointWith rdf:resource="Organism"/>	</owl:Class> 
+	
+	<owl:Class rdf:about="MultiProteinComplex" rdfs:label="(lses) Multi Protein Complex">
+		<rdf:type rdf:resource="&owl;Class"/>
+		<rdfs:subClassOf rdf:resource="Lse"/>
+  		<rdfs:comment rdf:datatype="&xsd;string">
+  			Macromolecular complexes formed from the association of defined protein subunits. 
+  		</rdfs:comment>
+    	    	<owl:disjointWith rdf:resource="Gene"/>
+    	<owl:disjointWith rdf:resource="Protein"/>
+    	<owl:disjointWith rdf:resource="Organism"/>	</owl:Class> 
+	
+	<owl:Class rdf:about="Organism" rdfs:label="(lses) Organism">
+		<rdf:type rdf:resource="&owl;Class"/>
+		<rdfs:subClassOf rdf:resource="Lse"/>
+  		<rdfs:comment rdf:datatype="&xsd;string">
+  			An individual form of life, defined at the species or subspecies level; such as Homo sapiens, Mus musculus, Danio rerio, Saccharoyces cereviseae, or Arabidopsis thaliana.
+  		</rdfs:comment>
+    	    	
+    	<owl:disjointWith rdf:resource="Gene"/>
+    	<owl:disjointWith rdf:resource="Protein"/>
+    	<owl:disjointWith rdf:resource="MultiProteinComplex"/>	</owl:Class> 
+	
+  	<owl:DatatypeProperty rdf:about="geneLocation">
+    	<rdfs:comment rdf:datatype="&xsd;string">Location of gene</rdfs:comment>
+    	<rdfs:domain rdf:resource="Gene"/>
+    	<rdfs:range rdf:resource="&xsd;string"/>
+  	</owl:DatatypeProperty>
+  	
+   	<owl:FunctionalProperty rdf:about="chromosome">
+    	<rdfs:domain rdf:resource="Gene"/>
+    	<rdfs:range rdf:resource="&xsd;string"/>
+    	<rdf:type rdf:resource="&owl;DatatypeProperty"/>
+  	</owl:FunctionalProperty> 
+  	
+  	<owl:FunctionalProperty rdf:about="lineage">
+	    <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+        	<rdfs:Class rdf:about="Organism"/>
+        </rdfs:domain>
+	    <rdf:type rdf:resource="&owl;DatatypeProperty"/>
+  	</owl:FunctionalProperty> 
+	
+	<!-- Records -->
+	<owl:Class rdf:about="LseRecord" rdfs:label="(lses) Life Science Entity Record">
+  		<rdf:type rdf:resource="&owl;Class"/>
+  		
+    	<!-- Software Provenance -->
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&pav;importedBy"/>
+             	</owl:onProperty>
+             	<owl:allValuesFrom rdf:resource="&agents;Software"/>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&pav;importedBy"/>
+             	</owl:onProperty>
+             	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;importedOn"/>
+             	</owl:onProperty>
+			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>	
+		
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;importedFirstOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+		
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;importedLastOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="&pav;importedFromSource"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+		
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;importedWithId"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+		
+		<!-- Human Provenance -->
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&pav;createdBy"/>
+             	</owl:onProperty>
+             	<owl:allValuesFrom rdf:resource="&agents;Person"/>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&pav;createdBy"/>
+             	</owl:onProperty>
+             	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;createdOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>    	  		
+  		
+  		<owl:disjointWith rdf:resource="Lse"/>	</owl:Class> 
+	
+	<owl:Class rdf:about="GeneRecord" rdfs:label="(lses) Gene Record">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="LseRecord"/>
+    	<rdfs:subClassOf>
+    		<owl:Restriction>			  	<owl:onProperty rdf:resource="recordOf"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+    	</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+    		<owl:Restriction>			  	<owl:onProperty rdf:resource="recordOf"/>			  	<owl:allValuesFrom rdf:resource="Gene"/>			</owl:Restriction>
+    	</rdfs:subClassOf>
+    	<owl:disjointWith rdf:resource="ProteinRecord"/>
+    	<owl:disjointWith rdf:resource="OrganismRecord"/>	</owl:Class> 
+	
+	<owl:Class rdf:about="ProteinRecord" rdfs:label="(lses) Protein Record">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="LseRecord"/>
+    	<rdfs:subClassOf>
+    		<owl:Restriction>			  	<owl:onProperty rdf:resource="recordOf"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+    	</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+    		<owl:Restriction>			  	<owl:onProperty rdf:resource="recordOf"/>			  	<owl:allValuesFrom rdf:resource="Protein"/>			</owl:Restriction>
+    	</rdfs:subClassOf>
+    	<owl:disjointWith rdf:resource="OrganismRecord"/>	</owl:Class> 
+	
+	<owl:Class rdf:about="OrganismRecord" rdfs:label="(lses) Organism Record">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="LseRecord"/>
+    	<rdfs:subClassOf>
+    		<owl:Restriction>			  	<owl:onProperty rdf:resource="recordOf"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+    	</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+    		<owl:Restriction>			  	<owl:onProperty rdf:resource="recordOf"/>			  	<owl:allValuesFrom rdf:resource="Organism"/>			</owl:Restriction>
+    	</rdfs:subClassOf>	</owl:Class> 
+
+    <owl:ObjectProperty rdf:about="recordOf"/> 
+    
+    <owl:ObjectProperty rdf:about="nativeInDescribedBy">
+        <rdfs:domain>
+        	<owl:Class rdf:about="GeneRecord"/>
+        </rdfs:domain>
+        <rdfs:range>
+         	<rdfs:Class rdf:about="OrganismRecord"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+    <owl:FunctionalProperty rdf:about="fullName">
+	    <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+	      <owl:Class>
+	        <owl:unionOf rdf:parseType="Collection">
+	        	<rdfs:Class rdf:about="GeneRecord"/>
+	        	<rdfs:Class rdf:about="ProteinRecord"/>
+	        	<rdfs:Class rdf:about="OrganismRecord"/>
+	       	</owl:unionOf>
+	      </owl:Class>
+        </rdfs:domain>
+	    <rdf:type rdf:resource="&owl;DatatypeProperty"/>
+  	</owl:FunctionalProperty>    
+    
+	<owl:DatatypeProperty rdf:about="name">
+	    <rdfs:range rdf:resource="&xsd;string"/>
+	    <rdfs:domain>
+	      <owl:Class>
+	        <owl:unionOf rdf:parseType="Collection">
+	          <owl:Class rdf:about="ProteinRecord"/>
+	          <owl:Class rdf:about="OrganismRecord"/>
+	        </owl:unionOf>
+	      </owl:Class>
+	    </rdfs:domain>
+	  </owl:DatatypeProperty>
+  	
+  	<owl:FunctionalProperty rdf:about="preferredName">
+	    <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+        	<owl:Class>
+	        	<owl:unionOf rdf:parseType="Collection">
+	        		<rdfs:Class rdf:about="ProteinRecord"/>
+	        		<rdfs:Class rdf:about="OrganismRecord"/>
+	        	</owl:unionOf>
+	      </owl:Class>
+        </rdfs:domain>
+	    <rdf:type rdf:resource="&owl;DatatypeProperty"/>
+  	</owl:FunctionalProperty>
+
+  	<owl:DatatypeProperty rdf:about="symbol">
+	    <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+         	<owl:Class>
+	        	<owl:unionOf rdf:parseType="Collection">
+		        	<rdfs:Class rdf:about="GeneRecord"/>
+		        	<rdfs:Class rdf:about="ProteinRecord"/>
+	        	</owl:unionOf>
+	      </owl:Class>
+        </rdfs:domain>
+  	</owl:DatatypeProperty>
+  	
+  	<owl:FunctionalProperty rdf:about="preferredSymbol">
+	    <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+        	<owl:Class>
+	        	<owl:unionOf rdf:parseType="Collection">
+		        	<rdfs:Class rdf:about="GeneRecord"/>
+		        	<rdfs:Class rdf:about="ProteinRecord"/>
+	        	</owl:unionOf>
+	      </owl:Class>
+        </rdfs:domain>
+	    <rdf:type rdf:resource="&owl;DatatypeProperty"/>
+  	</owl:FunctionalProperty>
+  	
+  	<owl:DatatypeProperty rdf:about="accessionNumber">
+	    <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+        	<rdfs:Class rdf:about="ProteinRecord"/>
+        </rdfs:domain>
+  	</owl:DatatypeProperty>
+  	
+  	<owl:FunctionalProperty rdf:about="preferredAccessionNumber">
+	    <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+        	<rdfs:Class rdf:about="ProteinRecord"/>
+        </rdfs:domain>
+	    <rdf:type rdf:resource="&owl;DatatypeProperty"/>
+  	</owl:FunctionalProperty>
+  	
+
+
+    <!-- foaf fixes -->
+    <owl:ObjectProperty rdf:about="http://xmlns.com/foaf/0.1/fundedBy">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="Lse"/>
+				        	<owl:Class rdf:about="LseRecord"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="Lse"/>
+				        	<owl:Class rdf:about="LseRecord"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty> 
+    
+    <owl:ObjectProperty rdf:about="http://xmlns.com/foaf/0.1/phone">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="Lse"/>
+				        	<owl:Class rdf:about="LseRecord"/>
+				        </owl:unionOf>
+				    </owl:Class>
+		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://xmlns.com/foaf/0.1/mbox">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="Lse"/>
+				        	<owl:Class rdf:about="LseRecord"/>
+				        </owl:unionOf>
+				    </owl:Class>
+		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://xmlns.com/foaf/0.1/depicts">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="LseRecord"/>
+		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+	<!-- pav fixes -->
+	<owl:ObjectProperty rdf:about="&pav;importedBy">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="Lse"/>
+				        	<owl:Class rdf:about="LseRecord"/>
+				        </owl:unionOf>
+				    </owl:Class>  	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="&pav;importedFromSource">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="Lse"/>
+				        	<owl:Class rdf:about="LseRecord"/>
+				        </owl:unionOf>
+				    </owl:Class> 	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="&pav;lastUpdateBy">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="Lse"/>
+				        	<owl:Class rdf:about="LseRecord"/>
+				        </owl:unionOf>
+				    </owl:Class>  	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="&pav;createdBy">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="Lse"/>
+				        	<owl:Class rdf:about="LseRecord"/>
+				        </owl:unionOf>
+				    </owl:Class>  	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="&pav;publishedBy">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="Lse"/>
+				        	<owl:Class rdf:about="LseRecord"/>
+				        </owl:unionOf>
+				    </owl:Class>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="Lse"/>
+				        	<owl:Class rdf:about="LseRecord"/>
+				        </owl:unionOf>
+				    </owl:Class>  	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="&pav;acceptedOn">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="Lse"/>
+				        	<owl:Class rdf:about="LseRecord"/>
+				        </owl:unionOf>
+				    </owl:Class>  	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="&pav;submittedOn">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="Lse"/>
+				        	<owl:Class rdf:about="LseRecord"/>
+				        </owl:unionOf>
+				    </owl:Class>  	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="&pav;submittedBy">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="Lse"/>
+				        	<owl:Class rdf:about="LseRecord"/>
+				        </owl:unionOf>
+				    </owl:Class>  	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="Lse"/>
+				        	<owl:Class rdf:about="LseRecord"/>
+				        </owl:unionOf>
+				    </owl:Class>  	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="&pav;publishedOn">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="Lse"/>
+				        	<owl:Class rdf:about="LseRecord"/>
+				        </owl:unionOf>
+				    </owl:Class>  	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="&pav;contributedBy">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="Lse"/>
+				        	<owl:Class rdf:about="LseRecord"/>
+				        </owl:unionOf>
+				    </owl:Class>  	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="&pav;contributors">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="Lse"/>
+				        	<owl:Class rdf:about="LseRecord"/>
+				        </owl:unionOf>
+				    </owl:Class> 	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="&pav;sourceAccessedOn">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="Lse"/>
+				        	<owl:Class rdf:about="LseRecord"/>
+				        </owl:unionOf>
+				    </owl:Class> 	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="&pav;sourceFirstAccessedOn">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="Lse"/>
+				        	<owl:Class rdf:about="LseRecord"/>
+				        </owl:unionOf>
+				    </owl:Class> 	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="&pav;sourceLastAccessedOn">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				        	<owl:Class rdf:about="Lse"/>
+				        	<owl:Class rdf:about="LseRecord"/>
+				        </owl:unionOf>
+				    </owl:Class> 	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty> 
+</rdf:RDF>

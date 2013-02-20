@@ -1,0 +1,944 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Created by Paolo Ciccarese http://www.hcklab.org/people/pc/ on October 15th, 2008 -->
+
+<!DOCTYPE rdf:RDF [
+    <!-- Other namespaces -->
+    <!ENTITY xsd  "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdf  "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY owl  "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc   "http://purl.org/dc/elements/1.1/" >
+ 
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/">
+    <!ENTITY pav "http://swan.mindinformatics.org/ontologies/1.2/pav/">
+  	<!ENTITY collections "http://swan.mindinformatics.org/ontologies/1.2/collections/">
+  	<!ENTITY agents "http://swan.mindinformatics.org/ontologies/1.2/agents/">
+  	<!ENTITY reification "http://swan.mindinformatics.org/ontologies/1.2/reification/">
+  	<!ENTITY discourserelationships "http://swan.mindinformatics.org/ontologies/1.2/discourse-relationships/">
+    
+    <!-- Main namespace -->
+    <!ENTITY discourseelements "http://swan.mindinformatics.org/ontologies/1.2/discourse-elements/" >
+    
+    <!-- Files -->
+  	<!ENTITY local "file:///Users/paolociccarese/Websites/Mindinformatics/ontologies/1.2/discourseelements.owl">
+  	<!ENTITY path "http://swan.mindinformatics.org/ontologies/1.2/discourseelements.owl">
+  	<!ENTITY file "&path;">  
+  	
+  	<!-- Previous file -->
+  	<!ENTITY previous-path "http://swan.mindinformatics.org/ontologies/1.1/swan.discourseelements.owl">
+  	
+  	<!-- Imported files -->
+    <!ENTITY agents-local "file:///Users/paolociccarese/Websites/Mindinformatics/ontologies/1.2/agents.owl">
+    <!ENTITY discourserelationships-local "file:///Users/paolociccarese/Websites/Mindinformatics/ontologies/1.2/discourserelationships.owl">
+
+    <!ENTITY agents-path "http://swan.mindinformatics.org/ontologies/1.2/agents.owl">
+    <!ENTITY discourserelationships-path "http://swan.mindinformatics.org/ontologies/1.2/discourserelationships.owl">
+    
+  	<!ENTITY agents-file "&agents-path;">
+  	<!ENTITY discourserelationships-file "&discourserelationships-path;">
+]>
+
+<rdf:RDF
+	xml:base="&discourseelements;"
+	xmlns:discourserelationships="&discourserelationships;"
+	xmlns:agents="&agents;"
+	xmlns:collections="&collections;"
+    xmlns:rdfs="&rdfs;"
+    xmlns:owl="&owl;"
+    xmlns:rdf="&rdf;"
+    xmlns:xsd="&xsd;"
+    xmlns:dc="&dc;"
+    xmlns:foaf="&foaf;" >
+    
+    <owl:Ontology rdf:about="&file;">
+		<rdf:type rdf:resource="&owl;Ontology"/>
+		<rdfs:label rdf:datatype="&xsd;string">Discourse Elements v. 1.2</rdfs:label>
+		
+    	<owl:imports rdf:resource="&agents-file;"/>
+    	<owl:imports rdf:resource="&discourserelationships-file;"/>
+
+    	<owl:priorVersion rdf:resource="&previous-path;"/>
+    	
+    	<dc:language>en</dc:language>
+    	<dc:title xml:lang="en">Discourse Elements ontology</dc:title>
+    	<dc:creator rdf:resource="http://www.hcklab.org/people/paolo-ciccarese/" />
+    	<dc:contributor rdf:datatype="&xsd;string">Paolo Ciccarese</dc:contributor>
+        <dc:contributor>Elizabeth Wu</dc:contributor>
+        <dc:contributor>June Kinoshita</dc:contributor>
+        <dc:contributor>Gwen Wong</dc:contributor>
+        <dc:contributor>Tim Clark</dc:contributor>    	
+        <dc:contributor>Marco Ocana</dc:contributor>    	
+    	<dc:publisher rdf:datatype="&xsd;string">http://swan.mindinformatics.org</dc:publisher>
+        <dc:date rdf:datatype="&xsd;string">May 11, 2009</dc:date>
+        <dc:format rdf:datatype="&xsd;string">rdf/xml</dc:format>       
+    </owl:Ontology> 
+    
+  	<rdf:Description rdf:about="&previous-path;">
+    	<rdf:type rdf:resource="&owl;Ontology"/>
+  	</rdf:Description> 
+  	
+  	<!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+     
+  	<rdf:Description rdf:about="&dc;title">
+  	  	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;date">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+ 	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;creator">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;format">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;language">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;publisher">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;contributor">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>  	 
+  	
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+  	<owl:ObjectProperty rdf:about="contains">
+    	<rdfs:domain rdf:resource="DiscourseElement"/>
+    	<rdfs:range rdf:resource="DiscourseElement"/>
+  	</owl:ObjectProperty>
+  	
+  	<owl:ObjectProperty rdf:about="containsDiscourseList">
+    	<rdfs:domain rdf:resource="DiscourseElement"/>
+    	<rdfs:range rdf:resource="DiscourseList"/>
+  	</owl:ObjectProperty>    
+  	
+	<owl:ObjectProperty rdf:about="arisesFromList">
+    	<rdfs:domain rdf:resource="ResearchQuestion"/>
+    	<rdfs:range rdf:resource="DiscourseList"/>
+  	</owl:ObjectProperty>
+  	
+	<owl:ObjectProperty rdf:about="inResponseToList">
+    	<rdfs:domain rdf:resource="ResearchComment"/>
+    	<rdfs:range rdf:resource="DiscourseList"/>
+  	</owl:ObjectProperty> 
+  	
+	<owl:ObjectProperty rdf:about="hasCanonicalForm">
+    	<rdfs:domain rdf:resource="ResearchStatement"/>
+    	<rdfs:range rdf:resource="CanonicalResearchStatement"/>
+  	</owl:ObjectProperty> 
+
+  	<!--  	
+  	<owl:ObjectProperty rdf:about="evolvedFrom">
+    	<rdfs:domain rdf:resource="DiscourseElement"/>
+    	<rdfs:range rdf:resource="DiscourseElement"/>
+  	</owl:ObjectProperty>	
+  	
+  	<owl:ObjectProperty rdf:about="refersToAsMainTopic">
+    	<rdfs:subPropertyOf rdf:resource="refersTo"/>
+  	</owl:ObjectProperty>
+  	-->
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatype Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+  	<owl:DatatypeProperty rdf:about="title">
+  		<rdf:type rdf:resource="&owl;DatatypeProperty"/>
+    	<rdfs:domain rdf:resource="DiscourseElement"/>
+  	</owl:DatatypeProperty>
+  	
+  	<owl:DatatypeProperty rdf:about="description">
+  		<rdf:type rdf:resource="&owl;DatatypeProperty"/>
+    	<rdfs:domain rdf:resource="DiscourseElement"/>
+  	</owl:DatatypeProperty>
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->  
+    <owl:Class rdf:about="DiscourseElement" rdfs:label="(discourse-elements) Discourse Element">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	
+    	<!-- Local -->
+     	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="title"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>	
+     	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="description"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="containsDiscourseList"/>
+             	</owl:onProperty>
+             	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+		
+		<!-- Discourse Relationships -->
+		<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&discourserelationships;alternativeTo"/>
+             	</owl:onProperty>
+             	<owl:allValuesFrom rdf:resource="DiscourseElement"/>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&discourserelationships;consistentWith"/>
+             	</owl:onProperty>
+             	<owl:allValuesFrom rdf:resource="DiscourseElement"/>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&discourserelationships;inconsistentWith"/>
+             	</owl:onProperty>
+             	<owl:allValuesFrom rdf:resource="DiscourseElement"/>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&discourserelationships;relevantTo"/>
+             	</owl:onProperty>
+             	<owl:allValuesFrom rdf:resource="DiscourseElement"/>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+    	
+    	<!-- Software Provenance -->
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&pav;importedBy"/>
+             	</owl:onProperty>
+             	<owl:allValuesFrom rdf:resource="&agents;Software"/>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&pav;importedBy"/>
+             	</owl:onProperty>
+             	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;importedOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>	
+		
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;importedFirstOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+		
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;importedLastOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty rdf:resource="&pav;importedFromSource"/>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+		
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;importedWithId"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>
+		
+		<!-- Human Provenance -->
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&pav;createdBy"/>
+             	</owl:onProperty>
+             	<owl:allValuesFrom rdf:resource="&agents;Person"/>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&pav;createdBy"/>
+             	</owl:onProperty>
+             	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>			  	<owl:onProperty>
+               		<owl:DatatypeProperty rdf:about="&pav;createdOn"/>
+             	</owl:onProperty>			  	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>			</owl:Restriction>
+		</rdfs:subClassOf>    	
+    
+    	<owl:disjointWith rdf:resource="&foaf;Document"/>
+    	<owl:disjointWith rdf:resource="&foaf;Project"/>
+    	<owl:disjointWith rdf:resource="&foaf;Agent"/>
+    	<owl:disjointWith rdf:resource="&foaf;OnlineAccount"/>
+    	<owl:disjointWith rdf:resource="&collections;Item"/>
+    	<owl:disjointWith rdf:resource="&collections;Collection"/>
+    	<owl:disjointWith rdf:resource="&agents;PersonName"/>
+	</owl:Class> 
+	
+	<owl:Class rdf:about="ResearchStatement" rdfs:label="(discourse-elements) Research Statement">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="DiscourseElement"/>
+	</owl:Class> 
+	
+	<owl:Class rdf:about="ResearchQuestion" rdfs:label="(discourse-elements) Research Question">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="DiscourseElement"/>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&discourserelationships;arisesFrom"/>
+             	</owl:onProperty>
+		      	<owl:allValuesFrom rdf:resource="DiscourseElement"/>
+           </owl:Restriction>
+    	</rdfs:subClassOf>    
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="arisesFromList"/>
+             	</owl:onProperty>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+           </owl:Restriction>
+    	</rdfs:subClassOf> 	
+    	
+    	<owl:disjointWith rdf:resource="ResearchStatement"/>
+	</owl:Class>    
+	
+	<owl:Class rdf:about="ResearchComment" rdfs:label="(discourse-elements) Comment">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="DiscourseElement"/>
+    	
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="&discourserelationships;inResponseTo"/>
+             	</owl:onProperty>
+		      	<owl:allValuesFrom rdf:resource="DiscourseElement"/>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+    	<rdfs:subClassOf>
+			<owl:Restriction>
+	           	<owl:onProperty>
+               		<owl:ObjectProperty rdf:about="inResponseToList"/>
+             	</owl:onProperty>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+           </owl:Restriction>
+    	</rdfs:subClassOf>
+    	
+    	<owl:disjointWith rdf:resource="ResearchStatement"/>
+    	<owl:disjointWith rdf:resource="ResearchQuestion"/>
+	</owl:Class>  
+	
+	<owl:Class rdf:about="DiscourseList" rdfs:label="(discourse-elements) Discourse List">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="&collections;List"/>
+    </owl:Class>
+    
+	<owl:Class rdf:about="DiscourseItem" rdfs:label="(discourse-elements) Discourse Item">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="&collections;ListItem"/>
+		<rdfs:subClassOf>
+		    <owl:Restriction>
+		      	<owl:onProperty rdf:resource="&collections;itemContent"/>
+		      	<owl:allValuesFrom>
+		      		<owl:Class rdf:about="DiscourseElement"/>
+				</owl:allValuesFrom>
+		    </owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+		    <owl:Restriction>
+		      	<owl:onProperty rdf:resource="&collections;nextItem"/>
+		      	<owl:someValuesFrom rdf:resource="DiscourseItem"/>
+		    </owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+		    <owl:Restriction>
+		      	<owl:onProperty rdf:resource="&collections;previousItem"/>
+		      	<owl:someValuesFrom rdf:resource="DiscourseItem"/>
+		    </owl:Restriction>
+		</rdfs:subClassOf>
+    </owl:Class>
+    
+    <owl:Class rdf:about="ReifiedConsistentWith" rdfs:label="(discourse-elements) Reified consistent with">
+  		<rdfs:comment rdf:datatype="&xsd;string">
+  			Reified version of the relationship 'consistentWith'
+  		</rdfs:comment>
+    	<rdfs:subClassOf rdf:resource="&reification;BinaryRelationship"/>
+    	<rdfs:subClassOf>
+	    	<owl:Restriction>
+	            <owl:onProperty rdf:resource="&reification;subject"/>
+	            <owl:allValuesFrom rdf:resource="DiscourseElement"/>
+	        </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+	        <owl:Restriction>
+	            <owl:onProperty rdf:resource="&reification;object"/>
+	            <owl:allValuesFrom rdf:resource="DiscourseElement"/>
+	        </owl:Restriction>
+        </rdfs:subClassOf>
+        <!--
+        <rdfs:subClassOf>
+	        <owl:Restriction>
+	            <owl:onProperty rdf:resource="&reification;property"/>
+	            <owl:allValuesFrom rdf:resource="&discourserelationships;consistentWith"/>
+	        </owl:Restriction>
+        </rdfs:subClassOf>
+        -->	</owl:Class>
+	
+    <owl:Class rdf:about="ReifiedInconsistentWith" rdfs:label="(discourse-elements) Reified inconsistent with">
+  		<rdfs:comment rdf:datatype="&xsd;string">
+  			Reified version of the relationship 'consistentWith'
+  		</rdfs:comment>
+    	<rdfs:subClassOf rdf:resource="&reification;BinaryRelationship"/>
+    	<rdfs:subClassOf>
+	    	<owl:Restriction>
+	            <owl:onProperty rdf:resource="&reification;subject"/>
+	            <owl:allValuesFrom rdf:resource="DiscourseElement"/>
+	        </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+	        <owl:Restriction>
+	            <owl:onProperty rdf:resource="&reification;object"/>
+	            <owl:allValuesFrom rdf:resource="DiscourseElement"/>
+	        </owl:Restriction>
+        </rdfs:subClassOf>
+        <!--
+        <rdfs:subClassOf>
+	        <owl:Restriction>
+	            <owl:onProperty rdf:resource="&reification;property"/>
+	            <owl:allValuesFrom rdf:resource="&discourserelationships;inconsistentWith"/>
+	        </owl:Restriction>
+        </rdfs:subClassOf>
+        -->	</owl:Class>
+	
+    <owl:Class rdf:about="ReifiedRelevantTo" rdfs:label="(discourse-elements) Reified relevant to">
+  		<rdfs:comment rdf:datatype="&xsd;string">
+  			Reified version of the relationship 'consistentWith'
+  		</rdfs:comment>
+    	<rdfs:subClassOf rdf:resource="&reification;BinaryRelationship"/>
+    	<rdfs:subClassOf>
+	    	<owl:Restriction>
+	            <owl:onProperty rdf:resource="&reification;subject"/>
+	            <owl:allValuesFrom rdf:resource="DiscourseElement"/>
+	        </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+	        <owl:Restriction>
+	            <owl:onProperty rdf:resource="&reification;object"/>
+	            <owl:allValuesFrom rdf:resource="DiscourseElement"/>
+	        </owl:Restriction>
+        </rdfs:subClassOf>
+        <!--
+        <rdfs:subClassOf>
+	        <owl:Restriction>
+	            <owl:onProperty rdf:resource="&reification;property"/>
+	            <owl:allValuesFrom rdf:resource="&discourserelationships;relevantTo"/>
+	        </owl:Restriction>
+        </rdfs:subClassOf>
+        -->	</owl:Class>
+
+    <owl:Class rdf:about="ReifiedAlternativeTo" rdfs:label="(discourse-elements) Reified alternative to">
+  		<rdfs:comment rdf:datatype="&xsd;string">
+  			Reified version of the relationship 'consistentWith'
+  		</rdfs:comment>
+    	<rdfs:subClassOf rdf:resource="&reification;BinaryRelationship"/>
+    	<rdfs:subClassOf>
+	    	<owl:Restriction>
+	            <owl:onProperty rdf:resource="&reification;subject"/>
+	            <owl:allValuesFrom rdf:resource="DiscourseElement"/>
+	        </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+	        <owl:Restriction>
+	            <owl:onProperty rdf:resource="&reification;object"/>
+	            <owl:allValuesFrom rdf:resource="DiscourseElement"/>
+	        </owl:Restriction>
+        </rdfs:subClassOf>
+        <!--
+        <rdfs:subClassOf>
+	        <owl:Restriction>
+	            <owl:onProperty rdf:resource="&reification;property"/>
+	            <owl:allValuesFrom rdf:resource="&discourserelationships;alternativeTo"/>
+	        </owl:Restriction>
+        </rdfs:subClassOf>
+        -->	</owl:Class>
+	
+	<owl:Class rdf:about="CanonicalResearchStatement" rdfs:label="(discourse-elements) Canonical Research Statement">
+    	<rdf:type rdf:resource="&owl;Class"/>
+    	<rdfs:subClassOf rdf:resource="DiscourseElement"/>
+    	
+    	<owl:disjointWith rdf:resource="ResearchStatement"/>
+    	<owl:disjointWith rdf:resource="ResearchQuestion"/>
+    	<owl:disjointWith rdf:resource="ResearchComment"/>
+	</owl:Class>  	
+    
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    //  Properties Restrictions
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->    
+        
+    <!-- discourse relationships fixes -->
+	<owl:ObjectProperty rdf:about="&discourserelationships;relatedTo">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				    		<owl:Class rdf:about="&collections;Item"/>
+				    		<owl:Class rdf:about="&collections;Collection"/> 
+				    		<owl:Class rdf:about="&agents;PersonName"/> 
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				    		<owl:Class rdf:about="&collections;Item"/>
+				    		<owl:Class rdf:about="&collections;Collection"/> 
+				    		<owl:Class rdf:about="&agents;PersonName"/> 
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+	<owl:ObjectProperty rdf:about="&discourserelationships;consistentWith">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				    		<owl:Class rdf:about="&foaf;Project"/>
+				    		<owl:Class rdf:about="&foaf;Agent"/> 
+				    		<owl:Class rdf:about="&foaf;OnlineAccount"/> 
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				    		<owl:Class rdf:about="&foaf;Project"/>
+				    		<owl:Class rdf:about="&foaf;Agent"/> 
+				    		<owl:Class rdf:about="&foaf;OnlineAccount"/> 
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+	<owl:ObjectProperty rdf:about="&discourserelationships;inconsistentWith">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				    		<owl:Class rdf:about="&foaf;Project"/>
+				    		<owl:Class rdf:about="&foaf;Agent"/> 
+				    		<owl:Class rdf:about="&foaf;OnlineAccount"/> 
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				    		<owl:Class rdf:about="&foaf;Project"/>
+				    		<owl:Class rdf:about="&foaf;Agent"/> 
+				    		<owl:Class rdf:about="&foaf;OnlineAccount"/> 
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+	<owl:ObjectProperty rdf:about="&discourserelationships;alternativeTo">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				    		<owl:Class rdf:about="&foaf;Project"/>
+				    		<owl:Class rdf:about="&foaf;Agent"/> 
+				    		<owl:Class rdf:about="&foaf;OnlineAccount"/> 
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				    		<owl:Class rdf:about="&foaf;Project"/>
+				    		<owl:Class rdf:about="&foaf;Agent"/> 
+				    		<owl:Class rdf:about="&foaf;OnlineAccount"/> 
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+	<owl:ObjectProperty rdf:about="&discourserelationships;relevantTo">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				    		<owl:Class rdf:about="&foaf;Project"/>
+				    		<owl:Class rdf:about="&foaf;Agent"/> 
+				    		<owl:Class rdf:about="&foaf;OnlineAccount"/> 
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				    		<owl:Class rdf:about="&foaf;Project"/>
+				    		<owl:Class rdf:about="&foaf;Agent"/> 
+				    		<owl:Class rdf:about="&foaf;OnlineAccount"/> 
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+	<owl:ObjectProperty rdf:about="&discourserelationships;refersTo">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&foaf;Project"/>
+				    		<owl:Class rdf:about="&foaf;Agent"/> 
+				    		<owl:Class rdf:about="&foaf;OnlineAccount"/> 
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&foaf;Project"/>
+				    		<owl:Class rdf:about="&foaf;Agent"/> 
+				    		<owl:Class rdf:about="&foaf;OnlineAccount"/> 
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+	<owl:ObjectProperty rdf:about="&discourserelationships;inResponseTo">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&foaf;Project"/>
+			    			<owl:Class rdf:about="ResearchStatement"/>
+			    			<owl:Class rdf:about="ResearchQuestion"/>
+			    			<owl:Class rdf:about="&reification;Relationship"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&foaf;Project"/>
+			    			<owl:Class rdf:about="&reification;Relationship"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="inResponseToList">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&foaf;Project"/>
+			    			<owl:Class rdf:about="&foaf;OnlineAccount"/>
+			    			<owl:Class rdf:about="ResearchStatement"/>
+			    			<owl:Class rdf:about="ResearchQuestion"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+	<owl:ObjectProperty rdf:about="&discourserelationships;arisesFrom">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&foaf;Project"/>
+			    			<owl:Class rdf:about="&foaf;Document"/>
+			    			<owl:Class rdf:about="ResearchStatement"/>
+			    			<owl:Class rdf:about="ResearchComment"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">				    		<owl:Class rdf:about="&foaf;Document"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+	<owl:ObjectProperty rdf:about="arisesFromList">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&foaf;Project"/>
+			    			<owl:Class rdf:about="&foaf;Document"/>
+			    			<owl:Class rdf:about="&foaf;OnlineAccount"/>
+			    			<owl:Class rdf:about="ResearchStatement"/>
+			    			<owl:Class rdf:about="ResearchComment"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="&discourserelationships;cites">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&foaf;Project"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="&discourserelationships;motivatedBy">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&foaf;Document"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+			    			<owl:Class rdf:about="&foaf;Document"/>
+				    	</owl:unionOf>	
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+    <!-- reification fixes -->
+    <owl:Class rdf:about="&reification;Relationship">
+    	<owl:disjointWith rdf:resource="DiscourseElement"/>
+	</owl:Class>
+        
+	<!-- pav fixes -->
+	<owl:ObjectProperty rdf:about="&pav;importedBy">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="DiscourseElement"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="&pav;importedFromSource">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="DiscourseElement"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="&pav;lastUpdateBy">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="DiscourseElement"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="&pav;createdBy">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="DiscourseElement"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="&pav;publishedBy">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="DiscourseElement"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="DiscourseElement"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="&pav;acceptedOn">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="DiscourseElement"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="&pav;submittedOn">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="DiscourseElement"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="&pav;submittedBy">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="DiscourseElement"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="&pav;publishedOn">
+        <rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>		    		<owl:Class rdf:about="DiscourseElement"/>   	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+	<!-- foaf fixes -->
+	<owl:ObjectProperty rdf:about="&foaf;fundedBy">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				        	<owl:Class rdf:about="DiscourseElement"/>
+				        </owl:unionOf>
+				    </owl:Class>
+		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty> 
+    
+    <owl:ObjectProperty rdf:about="&foaf;phone">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				    		<owl:Class rdf:about="DiscourseElement"/>
+				        </owl:unionOf>
+				    </owl:Class>
+		    	</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&foaf;mbox">
+        <rdfs:range>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+			    		<owl:unionOf rdf:parseType="Collection">
+				    		<owl:Class rdf:about="DiscourseElement"/>
+				        </owl:unionOf>
+				    </owl:Class>		    	
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty> 
+</rdf:RDF>

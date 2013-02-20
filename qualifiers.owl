@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Created by Paolo Ciccarese http://www.hcklab.org/people/pc/ on December 5th, 2008 -->
+
+<!DOCTYPE rdf:RDF [
+    <!-- Other namespaces -->
+    <!ENTITY xsd  "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdf  "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY owl  "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc   "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY skos "http://www.w3.org/2008/05/skos#" >
+    
+    <!ENTITY reification "http://swan.mindinformatics.org/ontologies/1.2/reification/">
+    
+    <!-- Main namespace -->
+    <!ENTITY qualifiers "http://swan.mindinformatics.org/ontologies/1.2/qualifiers/" >
+    
+    <!-- Main files -->
+    <!-- Local file to be removed before release -->
+    <!ENTITY local "file:///Users/paolociccarese/Websites/Mindinformatics/ontologies/1.2/qualifiers.owl">  
+    
+    <!ENTITY path "http://swan.mindinformatics.org/ontologies/1.2/qualifiers.owl">
+  	<!ENTITY file "&path;">
+  	
+	<!-- Imported files -->  	
+  	<!-- Local files to be removed before release -->
+  	<!ENTITY skos-local "file:///Users/paolociccarese/Websites/Mindinformatics/ontologies/1.2/skos-essential.owl">
+  	<!ENTITY reification-local "file:///Users/paolociccarese/Websites/Mindinformatics/ontologies/1.2/reification.owl">
+
+  	<!ENTITY skos-path "http://swan.mindinformatics.org/ontologies/1.2/skos-essential.owl">
+  	<!ENTITY reification-path "http://swan.mindinformatics.org/ontologies/1.2/reification.owl">
+  	
+  	<!ENTITY skos-file "&skos-path;">
+  	<!ENTITY reification-file "&reification-path;">
+]>
+<rdf:RDF xml:base="&qualifiers;"
+		 xmlns:reification="&reification;"
+         xmlns:dc="&dc;"
+         xmlns:owl="&owl;"
+         xmlns:rdf="&rdf;"
+         xmlns:rdfs="&rdfs;"
+         xmlns:skos="&skos;">
+
+  	<owl:Ontology rdf:about="&file;">
+  		<rdf:type rdf:resource="&owl;Ontology"/>
+  		<rdfs:label rdf:datatype="&xsd;string">Qualifiers ontology v. 1.0</rdfs:label>
+        <owl:versionInfo rdf:datatype="&xsd;string">1.0</owl:versionInfo>
+        
+        <owl:imports rdf:resource="&skos-file;"/>
+        <owl:imports rdf:resource="&reification-file;"/>
+        
+        <dc:language>en</dc:language>
+        <dc:title xml:lang="en">Qualifiers ontology</dc:title>
+        <dc:creator rdf:resource="http://www.hcklab.org/people/paolo-ciccarese/" /> 
+        <dc:contributor rdf:datatype="&xsd;string">Paolo Ciccarese</dc:contributor>
+        <dc:publisher rdf:resource="http://swan.mindinformatics.org" />
+        <dc:date rdf:datatype="&xsd;string">January 28, 2009</dc:date>
+        <dc:format rdf:datatype="&xsd;string">rdf/xml</dc:format>
+  	</owl:Ontology>
+
+  	<!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+     
+  	<rdf:Description rdf:about="&dc;title">
+  	  	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;date">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+ 	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;creator">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;format">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;language">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;publisher">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;contributor">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>  	 
+  	
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+    <owl:ObjectProperty rdf:about="qualifiedBy">
+    	<rdfs:domain>
+        	<owl:Class>
+		    	<owl:complementOf>
+		    		<owl:Class>
+						<owl:unionOf rdf:parseType="Collection">				    		<owl:Class rdf:about="Qualifier"/> 
+				    		<owl:Class rdf:about="&skos;Concept"/> 
+				    		<owl:Class rdf:about="&skos;Collection"/> 
+				    		<owl:Class rdf:about="&skos;ConceptScheme"/>   	
+				    	</owl:unionOf>
+				    </owl:Class>
+				</owl:complementOf>
+		    </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="Qualifier"/>
+    </owl:ObjectProperty> 
+    <owl:ObjectProperty rdf:about="hasMeaning">
+    	<rdfs:domain rdf:resource="Qualifier"/>
+    	<rdfs:range rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="hasExactMeaning">
+    	<rdfs:domain rdf:resource="Qualifier"/>
+    	<rdfs:range rdf:resource="Meaning"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="hasBroaderMeaning">
+    	<rdfs:domain rdf:resource="Qualifier"/>
+    	<rdfs:range rdf:resource="Meaning"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="hasNarrowerMeaning">
+    	<rdfs:domain rdf:resource="Qualifier"/>
+    	<rdfs:range rdf:resource="Meaning"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="meaningURI">
+    	<rdfs:domain rdf:resource="Meaning"/>
+    	<rdfs:range rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->      
+    <owl:Class rdf:about="Qualifier" rdfs:label="(qualifiers) Qualifier">
+    	<rdfs:comment>Qualifiers are annotation performed through the usage of a controlled vocabulary. Terms belonging to vocabularies expressed with skos are only one example of qualifiers.</rdfs:comment>
+    	<owl:disjointWith rdf:resource="&skos;Collection"/>
+    	<owl:disjointWith rdf:resource="&skos;ConceptScheme"/>
+    	<owl:disjointWith rdf:resource="&reification;Relationship"/>
+  	</owl:Class> 
+  	
+  	<owl:Class rdf:about="Meaning" rdfs:label="(qualifiers) Meaning">
+    	<rdfs:comment>Qualifiers are annotation performed through the usage of a controlled vocabulary. Terms belonging to vocabularies expressed with skos are only one example of qualifiers.</rdfs:comment>
+    	<owl:disjointWith rdf:resource="Qualifier"/>
+    	<owl:disjointWith rdf:resource="&skos;Concept"/>
+    	<owl:disjointWith rdf:resource="&skos;Collection"/>
+    	<owl:disjointWith rdf:resource="&skos;ConceptScheme"/>
+    	<owl:disjointWith rdf:resource="&reification;Relationship"/>
+  	</owl:Class> 
+  	
+  	<owl:Class rdf:about="&reification;Relationship">
+  		<owl:disjointWith rdf:resource="&skos;Concept"/>
+    	<owl:disjointWith rdf:resource="&skos;Collection"/>
+    	<owl:disjointWith rdf:resource="&skos;ConceptScheme"/>
+  	</owl:Class> 
+  	
+  	<owl:Class rdf:about="QualifierConcept" rdfs:label="(qualifiers) Qualifier Concept">
+    	<rdfs:comment>Qualifiers concepts are defined through skos:Concepts.</rdfs:comment>
+    	<rdfs:subClassOf rdf:resource="Qualifier"/>
+    	<rdfs:subClassOf rdf:resource="&skos;Concept"/>
+  	</owl:Class> 
+  	
+	<owl:Class rdf:about="ReifiedQualifiedBy" rdfs:label="(qualifiers) Reified qualified by">
+  		<rdfs:comment rdf:datatype="&xsd;string">
+  			Reified version of property qualifiedBy.
+  		</rdfs:comment>
+    	<rdfs:subClassOf rdf:resource="&reification;BinaryRelationship"/>
+        <rdfs:subClassOf>
+	        <owl:Restriction>
+	            <owl:onProperty rdf:resource="&reification;object"/>
+	            <owl:allValuesFrom rdf:resource="Qualifier"/>
+	        </owl:Restriction>
+        </rdfs:subClassOf>
+        <!--
+        <rdfs:subClassOf>
+	        <owl:Restriction>
+	            <owl:onProperty rdf:resource="&reification;property"/>
+	            <owl:allValuesFrom rdf:resource="qualifiedBy"/>
+	        </owl:Restriction>
+        </rdfs:subClassOf>
+        -->	</owl:Class>
+</rdf:RDF>
