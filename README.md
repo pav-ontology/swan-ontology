@@ -5,7 +5,7 @@ SWAN ontology consists in a collection of ontologies used to create, manage and 
 ## Archived
 **Note**: This repository is **not under active development** and is provided for **archival purposes** only. This repository has been rescued from Google Code <http://code.google.com/p/swan-ontology/>.
 
-The SWAN Ontology PURLs are unfortunately no longer maintained, but map to the following files:
+The SWAN Ontology PURLs are unfortunately no longer maintained, but map to the following files that are archived in [tag 2.0.1](https://github.com/pav-ontology/swan-ontology/releases/tag/2.0.1):
 
 * <http://purl.org/swan/2.0/> [swan.owl](swan.owl)
 * <http://purl.org/swan/2.0/collections/> [collections.owl](collections.owl)
@@ -14,7 +14,7 @@ The SWAN Ontology PURLs are unfortunately no longer maintained, but map to the f
 * <http://purl.org/swan/2.0/experiment> [experiments.owl](experiments.owl)
 * <http://mindinformatics.org/cito/swan-bridge.owl#> [cito-bfo-bridge.owl](cito-bfo-bridge.owl)
 
-These namespaces from [SWAN ontology 1.2 (archived 2012-06-27)](http://web.archive.org/web/20120627031637/http://swan.mindinformatics.org/ontology.html)) are archived in [tag 1.2](https://github.com/pav-ontology/swan-ontology/releases/tag/1.2):
+These namespaces from [SWAN ontology 1.2 (archived 2012-06-27)](http://web.archive.org/web/20120627031637/http://swan.mindinformatics.org/ontology.html) are archived in [tag 1.2](https://github.com/pav-ontology/swan-ontology/releases/tag/1.2):
 * <http://swan.mindinformatics.org/ontologies/1.2/agents/> [agents.owl](https://github.com/pav-ontology/swan-ontology/blob/1.2/agents.owl)
 * <http://swan.mindinformatics.org/ontologies/1.2/citations/> [citations.owl](https://github.com/pav-ontology/swan-ontology/blob/1.2/citations.owl)
 * <http://swan.mindinformatics.org/ontologies/1.2/collections/> [collections.owl](https://github.com/pav-ontology/swan-ontology/blob/1.2/collections.owl)
