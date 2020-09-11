@@ -65,3 +65,4 @@ SWAN Ontology 2.0 is based on SWAN Ontology 1.2, archived in [tag 1.2](https://g
 
 * [SWAN project](http://www.hcklab.org/swan-project.html)
 * [PAV ontology](http://purl.org/pav/html)
+* [W3C: Semantic Web Applications in Neuromedicine (SWAN) Ontology](http://www.w3.org/TR/hcls-swan/)
